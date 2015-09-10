@@ -4,9 +4,9 @@ android {
     signingConfigs {
         mangadul {
             keyAlias 'keystore'
-            keyPassword 'Mt020215as2009'
+            keyPassword 'xxxxxxxxxx'
             storeFile file('D:/kerjaan/waditra/cert/mangadul.jks')
-            storePassword 'Mt020215as2009'
+            storePassword 'xxxxxxxxxx'
         }
     }
     compileSdkVersion 23
