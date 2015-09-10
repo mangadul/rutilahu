@@ -35,12 +35,6 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
-    <item android:id="@+id/action_login"
-        android:title="@string/title_activity_login"
-        android:icon="@drawable/ic_add_circle_black_18dp"
-        android:orderInCategory="100"
-        app:showAsAction="never" />
-
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:icon="@drawable/ic_settings_black_18dp"

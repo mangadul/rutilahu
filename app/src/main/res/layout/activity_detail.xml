@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        tools:context="com.alphamedia.rutilahu.DetailActivity"
+        android:padding="0.5dip"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/fotopenerima"
+            android:layout_height="60dip"
+            android:layout_width="60dip"
+            android:padding="5dp"
+            android:layout_marginLeft="5dip"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_person_outline_black_24dp" />
+
+        <ImageButton
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pic_fotopenerima"
+            android:onClick="fotoPenerima"
+            android:src="@drawable/ic_photo_camera_black_18dp" />
+
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/ktp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/nama"
+                android:layout_marginLeft="5dip"
+                android:textSize="14sp"
+                android:typeface="sans" />
+
+            <TextView
+                android:id="@+id/alamat"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ktp"
+                android:textColor="#343434"
+                android:paddingTop="2dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/kecamatan"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/alamat"
+                android:textColor="#343434"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/kabupaten"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/kecamatan"
+                android:textColor="#343434"
+                android:layout_marginLeft="10dip"
+                android:layout_alignParentRight="true"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/ktp"
+                android:layout_alignParentRight="true"
+                android:textColor="#000000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tgl_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/nama"
+                android:layout_alignParentRight="true"
+                android:textColor="#343434"
+                android:textSize="12sp" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</RelativeLayout>

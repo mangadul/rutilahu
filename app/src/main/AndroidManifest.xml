@@ -3,7 +3,6 @@
     package="com.alphamedia.rutilahu" >
 
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -23,6 +22,20 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light" >
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+
+        <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
+        <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+
+        <uses-permission android:name="com.alphamedia.rutilahu.permission.MAPS_RECEIVE"/>
+        <permission
+            android:name="com.alphamedia.rutilahu.permission.MAPS_RECEIVE"
+            android:protectionLevel="signature" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -36,10 +49,6 @@
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
-        </activity>
-        <activity
-            android:name=".detail_activity"
-            android:label="@string/title_activity_detail_activity" >
         </activity>
         <activity
             android:name=".DataPenerima"
@@ -82,10 +91,10 @@
         <activity
             android:name=".SettingsaActivity"
             android:label="@string/title_activity_settingsa"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".DataPenerimaRealmIO" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.alphamedia.rutilahu.MainActivity" />
+                android:value="com.alphamedia.rutilahu.DataPenerimaRealmIO" />
         </activity>
         <activity
             android:name=".UploadActivity"
@@ -94,13 +103,27 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:theme="@android:style/Theme.Holo.Light.Dialog"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Holo.Light.Dialog" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/title_activity_detail" >
+        </activity>
+        <activity
+            android:name=".MapActivity"
+            android:label="@string/title_activity_map" >
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCMNaSuXewJDoRSvg_KFVwP36g7wF_QYS0"/>
+
     </application>
 
 </manifest>

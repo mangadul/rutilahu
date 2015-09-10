@@ -32,6 +32,7 @@ import java.util.List;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
+import io.realm.exceptions.RealmException;
 
 
 public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderManager.LoaderCallbacks<String> {
@@ -66,27 +67,42 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        getLoaderManager().initLoader(LOAD_NETWORK_C, null, this).forceLoad();
-
         mIconOpenSearch = getResources()
                 .getDrawable(R.drawable.ic_search_black_18dp);
         mIconCloseSearch = getResources()
                 .getDrawable(R.drawable.ic_clear_black_18dp);
 
-        realmConfiguration = new RealmConfiguration.Builder(this).build();
-        Realm.deleteRealm(realmConfiguration);
+        try {
+            if (realm != null) {
+                realm.close();
+            }
+            RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
+            Realm.deleteRealm(realmConfiguration);
+            Realm.setDefaultConfiguration(realmConfiguration);
+        } catch (RealmException e)
+        {
+            Log.e("Error: ", e.getMessage());
+        }
+
+        getLoaderManager().initLoader(LOAD_NETWORK_C, null, this).forceLoad();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        realm = Realm.getInstance(this);
+        try {
+            realm = Realm.getInstance(this);
+        } catch (RealmException e) {
+            Log.e("Error: ", e.getMessage());
+            Realm.deleteRealmFile(this);
+        }
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        realm.close();
+        //realm.close();
+        //Realm.deleteRealm(realmConfiguration);
     }
 
     @Override
@@ -105,8 +121,12 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         int id = item.getItemId();
+
         if (id == R.id.action_settings) {
+            item.setIcon(R.drawable.ic_settings_black_18dp);
+            startActivity(new Intent(this, SettingsaActivity.class));
             return true;
         }
 
@@ -131,14 +151,14 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             return true;
         }
 
-        if (id == R.id.action_login) {
-            Intent login = new Intent(getApplicationContext(),LoginActivity.class);
-            startActivity(login);
+        if (id == R.id.action_refresh) {
+            refreshView();
             return true;
         }
 
-        if (id == R.id.action_refresh) {
-            refreshView();
+        if (id == R.id.map) {
+            Intent map = new Intent(getApplicationContext(),MapActivity.class);
+            startActivity(map);
             return true;
         }
 
@@ -148,13 +168,32 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     private void refreshView()
     {
         mAdapter = new DataPenerimaAdapter(this);
-        result = realm.where(Penerima.class).findAll();
-        result.sort("namalengkap", RealmResults.SORT_ORDER_ASCENDING);
-        mAdapter.setData(result);
-        mListView = (ListView) findViewById(R.id.custom_list);
-        mListView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
-        mListView.invalidate();
+        if(result == null)
+        {
+            RealmResults<Penerima> result;
+            try {
+                result = (RealmResults<Penerima>) loadPenerima();
+                result = realm.where(Penerima.class).findAll();
+                result.sort("namalengkap", RealmResults.SORT_ORDER_ASCENDING);
+                mAdapter.setData(result);
+                mListView = (ListView) findViewById(R.id.custom_list);
+                mListView.setAdapter(mAdapter);
+                mAdapter.notifyDataSetChanged();
+                mListView.invalidate();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else
+        {
+            result = realm.where(Penerima.class).findAll();
+            result.sort("namalengkap", RealmResults.SORT_ORDER_ASCENDING);
+            mAdapter.setData(result);
+            mListView = (ListView) findViewById(R.id.custom_list);
+            mListView.setAdapter(mAdapter);
+            mAdapter.notifyDataSetChanged();
+            mListView.invalidate();
+        }
+        //realm.close();
     }
 
     private void openSearchBar(String queryText) {
@@ -265,7 +304,15 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 public void onItemClick(AdapterView<?> parent, final View view,
                                         int position, long id) {
                     TextView textView = (TextView) view.findViewById(R.id.nama);
-                    Toast.makeText(getApplicationContext(), "Nama: " + textView.getText().toString(), Toast.LENGTH_SHORT).show();
+                    TextView ktp = (TextView) view.findViewById(R.id.ktp);
+                    Toast.makeText(getApplicationContext(),
+                            "Nama: " + textView.getText().toString() + " - " +
+                            "KTP: " + ktp.getText().toString(),
+                            Toast.LENGTH_SHORT)
+                            .show();
+                    Intent i = new Intent(DataPenerimaRealmIO.this, DetailActivity.class);
+                    i.putExtra("ktp", ktp.getText().toString());
+                    startActivity(i);
                 }
 
             });
@@ -275,6 +322,12 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
 
     @Override
     public void onLoaderReset(Loader<String> loader) {
+        try {
+            realm = Realm.getInstance(this);
+        }
+        catch (IllegalStateException e) {
+            Log.e("Error: ", e.getMessage());
+        }
     }
 
     public static class ApiLoaderTask extends AsyncTaskLoader<String> {
@@ -293,20 +346,16 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         public String loadInBackground() {
             Log.d("Loader", mFile);
             realm = Realm.getInstance(getContext());
-            if (!mClass.equals(DataPenerimaRealmIO.class)) {
-                try {
-                    loadJsonFromStream(realm);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                try {
-                    loadJsonFromStream(realm);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            realm.beginTransaction();
+            try {
+                loadJsonFromStream(realm);
+            } catch (IOException e) {
+                e.printStackTrace();
+                realm.cancelTransaction();
+                realm.close();
             }
-            realm.close();
+            realm.commitTransaction();
+            //realm.close();
             return "";
         }
 
@@ -330,10 +379,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             if(initialFile.exists())
             {
                 InputStream stream = new FileInputStream(initialFile);
-                realm.beginTransaction();
                 try {
                     realm.createAllFromJson(Penerima.class, stream);
-                    realm.commitTransaction();
                 } catch (IOException e) {
                     Log.e("Error: ", e.getMessage() + " - getStackTrace: " + e.getStackTrace().toString());
                     realm.cancelTransaction();
@@ -344,18 +391,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 }
             } else
             {
-                String message = "File tidak ditemukan, download file terlebih dahulu.";
-                AlertDialog.Builder builder = new AlertDialog.Builder(this.getContext());
-                builder.setMessage(message).setTitle("Peringatan")
-                        .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                /* panggil inten download ? */
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.show();
-                Log.e("Error: ", message);
+                Log.e("Error: ", "File tidak ditemukan");
             }
         }
 

@@ -10,6 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.alphamedia.rutilahu.api.CircleTransform;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -28,6 +29,8 @@ public class DataPenerimaAdapter extends BaseAdapter {
     private LayoutInflater inflater;
 
     private Target loadtarget;
+    private String sts_sudah = "SUDAH";
+    private String sts_belum = "BELUM";
 
     private List<Penerima> penerima = null;
 
@@ -39,9 +42,32 @@ public class DataPenerimaAdapter extends BaseAdapter {
         this.penerima = details;
     }
 
+    /*
     @Override
     public int getCount() {
+        if (realmResults == null || realmResults.size() == 0) {
+            return 0;
+        }
+        return realmResults.first().getMessages().size();
+    }
+
+    @Override
+    public T getItem(int i) {
+        if (realmResults == null || realmResults.size() == 0) {
+            return null;
+        }
+        return realmResults.first().getMessages().get(i);
+    }
+    */
+
+    @Override
+    public int getCount() {
+        /*
         if (penerima == null) {
+            return 0;
+        }
+        */
+        if (penerima == null || penerima.size() == 0) {
             return 0;
         }
         return penerima.size();
@@ -96,7 +122,7 @@ public class DataPenerimaAdapter extends BaseAdapter {
                 .append(dp.getDesa())
                 .toString();
 
-        String catat = (dp.getIs_catat()) ? "SUDAH" : "BELUM";
+        String catat = (dp.getIs_catat()) ? sts_sudah : sts_belum;
         if(dp.getIs_catat())
         {
             currentView.findViewById(R.id.status).setBackgroundColor(23);

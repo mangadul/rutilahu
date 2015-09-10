@@ -59,4 +59,31 @@
     <string name="search_hint_penerima">Nama, Jalan, Kecamatan, Kabupaten</string>
     <string name="title_activity_login">Login</string>
     <string name="button_login">Login</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="jalan_desa">Jalan Desa</string>
+    <string name="namalengkap">Nama Lengkap</string>
+    <string name="jk">Jenis Kelamin</string>
+    <string name="ktp">KTP</string>
+    <string name="kk">Kartu Keluarga</string>
+    <string name="rt">RT</string>
+    <string name="rw">RW</string>
+    <string name="desa">Desa / Kelurahan</string>
+    <string name="kecamatan">Kecamatan</string>
+    <string name="kabupaten">Kabupaten</string>
+    <string name="provinsi">Provinsi</string>
+    <string name="btnfoto">Foto</string>
+    <string name="foto_tampak_depan">Tampak Depan</string>
+    <string name="foto_tampak_samping2">Tampak Samping Kanan</string>
+    <string name="foto_tampak_samping1">Tampak Samping Kiri</string>
+    <string name="foto_tampak_dapur">Foto Dapur</string>
+    <string name="foto_jamban">Foto Jamba</string>
+    <string name="fotoSumberAir">Foto Sumber Air</string>
+    <string name="foto_dapur">Foto Dapur</string>
+    <string name="fotoPenerima">Foto Penerima</string>
+    <string name="tgl_lahir">Tgl Lahir</string>
+
+    <string name="status_sudah">SUDAH</string>
+    <string name="status_belum">BELUM</string>
+    <string name="title_activity_map">Map</string>
+
 </resources>
