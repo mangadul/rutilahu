@@ -2,11 +2,19 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
+<<<<<<< HEAD
         keystore {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
             storeFile file('D:/kerjaan/waditra/cert/keystore.jks')
             storePassword 'android'
+=======
+        mangadul {
+            keyAlias 'keystore'
+            keyPassword 'xxxxxxxxxx'
+            storeFile file('D:/kerjaan/waditra/cert/mangadul.jks')
+            storePassword 'xxxxxxxxxx'
+>>>>>>> 452c8c1883d430dea7055c1a3c60e1220f94b4ec
         }
     }
     compileSdkVersion 23
