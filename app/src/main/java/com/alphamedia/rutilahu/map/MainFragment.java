@@ -41,6 +41,7 @@ import android.widget.Toast;
 
 import com.alphamedia.rutilahu.Config;
 import com.alphamedia.rutilahu.DataPenerimaAdapter;
+import com.alphamedia.rutilahu.OnTaskCompleted;
 import com.alphamedia.rutilahu.Penerima;
 import com.alphamedia.rutilahu.R;
 import com.alphamedia.rutilahu.api.SlidingUpPanelLayout;
@@ -62,7 +63,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -104,11 +104,14 @@ public class MainFragment extends Fragment implements
     private boolean isGPSEnabled = false;
     private boolean isNetworkEnabled = false;
     private boolean canGetLocation;
+    private String noktp = "";
+
+    RealmResults<Penerima> result = null;
+    DataPenerimaAdapter adapter;
+
+    private List<Penerima> datapenerima;
 
     Realm realm;
-    List<Penerima> mapdata = null;
-
-    getDataPenerima dp;
 
     public MainFragment() {
     }
@@ -178,6 +181,36 @@ public class MainFragment extends Fragment implements
 
         mListView.addHeaderView(mTransparentHeaderView);
 
+        if(realm == null) realm = Realm.getInstance(realmConfiguration);
+        adapter = new DataPenerimaAdapter(getContext());
+        GetDataMap dc = new GetDataMap(new OnTaskCompleted() {
+            @Override
+            public void onTaskCompleted() {
+                try {
+                    List<Penerima> data = null;
+                    data = loadPenerima();
+                    adapter.setData(data);
+                    mListView.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        dc.execute();
+
+        mListView.invalidate();
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mSlidingUpPanelLayout.collapsePane();
+                //TextView ktp = (TextView) view.findViewById(R.id.ktp);
+                //String noktp = ktp.getText().toString();
+                //set_noKtp(noktp);
+            }
+        });
+
+        /*
         try {
             if (dp != null) {
                 dp.cancel(true);
@@ -185,9 +218,10 @@ public class MainFragment extends Fragment implements
             Log.d("Eksekusi", "Eksekusi getDataPenerima...");
             dp = new getDataPenerima();
             dp.execute();
-        }catch (NullPointerException ne) {
-            Log.e("Error","Null Exception", ne);
+        }catch (Exception e) {
+            Log.e("Error getDataPenerima: ", e.getMessage());
         }
+        */
 
         /*
         mListView.addHeaderView(mTransparentHeaderView);
@@ -200,6 +234,7 @@ public class MainFragment extends Fragment implements
         });
         */
 
+
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addApi(LocationServices.API)
                 .addConnectionCallbacks(this)
@@ -209,6 +244,12 @@ public class MainFragment extends Fragment implements
         setUpMapIfNeeded();
     }
 
+    private void updateList(List<Penerima> p, DataPenerimaAdapter adapter)
+    {
+        adapter.setData(p);
+        mListView.setAdapter(adapter);
+    }
+
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
@@ -216,31 +257,55 @@ public class MainFragment extends Fragment implements
             mMap = mMapFragment.getMap();
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
+                mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 mMap.setMyLocationEnabled(false);
-                mMap.getUiSettings().setCompassEnabled(false);
-                mMap.getUiSettings().setZoomControlsEnabled(false);
-                mMap.getUiSettings().setMyLocationButtonEnabled(false);
-                LatLng update = getLastKnownLocation();
+                mMap.getUiSettings().setCompassEnabled(true);
+                mMap.getUiSettings().setZoomControlsEnabled(true);
+                mMap.getUiSettings().setMyLocationButtonEnabled(true);
+                final LatLng update = getLastKnownLocation();
                 if (update != null) {
                     mMap.moveCamera(CameraUpdateFactory.newCameraPosition(CameraPosition.fromLatLngZoom(update, 11.0f)));
                 }
-                /*
-                Marker hamburg = map.addMarker(new MarkerOptions().position(HAMBURG)
-                        .title("Hamburg"));
-                    Marker kiel = map.addMarker(new MarkerOptions()
-                        .position(KIEL)
-                        .title("Kiel")
-                        .snippet("Kiel is cool")
-                        .icon(BitmapDescriptorFactory
-                            .fromResource(R.drawable.ic_launcher)));
-                * */
+
                 mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
                     @Override
                     public void onMapClick(LatLng latLng) {
                         mIsNeedLocationUpdate = false;
+                        /*
+                        Penerima markerdata = realm.where(Penerima.class)
+                                .equalTo("ktp", get_noKtp())
+                                .findFirst();
+                        String nama = markerdata.getNamalengkap();
+                        String alamat = new StringBuilder().append(markerdata.getJalan_desa())
+                                .append(" Rt. ")
+                                .append(markerdata.getRt())
+                                .append(" Rw. ")
+                                .append(markerdata.getRw())
+                                .append(" Desa ")
+                                .append(markerdata.getDesa())
+                                .append(" Kec. ")
+                                .append(markerdata.getKecamatan())
+                                .append(" Kab. ")
+                                .append(markerdata.getKabupaten())
+                                .toString();
+
+                        LatLng posgps = new LatLng(Double.parseDouble(markerdata.getLongitude()), Double.parseDouble(markerdata.getLatitude()));
+                        Marker marker = mMap.addMarker(new MarkerOptions()
+                                .title(nama)
+                                .position(posgps)
+                                .snippet(alamat)
+                                .icon(BitmapDescriptorFactory
+                                        .fromResource(R.drawable.ic_location_on_black_18dp)));
+                        marker.showInfoWindow();
+
+                        moveToLocation(posgps, false);
+                        */
                         moveToLocation(latLng, false);
                     }
+
                 });
+
             }
         }
     }
@@ -276,7 +341,7 @@ public class MainFragment extends Fragment implements
     @Override
     public void onDestroy() {
         super.onDestroy();
-        realm.close();
+        //realm.close();
     }
 
     private LatLng getLastKnownLocation() {
@@ -520,69 +585,58 @@ public class MainFragment extends Fragment implements
 
     }
 
-    private class getDataPenerima extends AsyncTask<Void, Integer, Integer> {
+    private class GetDataMap extends AsyncTask<Void, Integer, Integer> {
 
-        RealmResults<Penerima> result = null;
+        //private RealmResults result = null;
+        private Realm realm;
+
+        private OnTaskCompleted listener;
+
+        public GetDataMap(OnTaskCompleted listener) {
+            this.listener=listener;
+        }
 
         @Override
         protected Integer doInBackground(Void... params) {
+
             realm = Realm.getDefaultInstance();
-            mapdata = null;
 
             if(result != null){
                 result.clear();
                 realm.clear(Penerima.class);
             }
+
             realm.beginTransaction();
+
             try {
                 loadJsonFromStream(realm);
             } catch (IOException e) {
                 e.printStackTrace();
                 realm.cancelTransaction();
-                realm.close();
+                //realm.close();
             }
             realm.commitTransaction();
+
             //result = realm.where(Penerima.class).findAll();
-            Integer sum = result.size();
-            realm.close();
-            return sum;
+            //datapenerima = realm.allObjects(Penerima.class);
+            //Integer sum = result.size();
+            //realm.close();
+            return 1;
         }
 
         @Override
         protected void onPreExecute() {
-            /*
-            logsView.removeAllViews();
-            progressView.setVisibility(View.VISIBLE);
-            showStatus("Starting import");
-            */
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... progress) {
+            Log.d("Update progress", Integer.toString(progress[0]));
         }
 
         @Override
         protected void onPostExecute(Integer sum) {
-            /*
-            progressView.setVisibility(View.GONE);
-            showStatus(TEST_OBJECTS + " objects imported.");
-            showStatus("The total score is : " + sum);
-            */
-            try {
-                mapdata = loadPenerima();
-
-                DataPenerimaAdapter adapter = new DataPenerimaAdapter(getContext());
-                adapter.setData(mapdata);
-                mListView.setAdapter(adapter);
-                adapter.notifyDataSetChanged();
-
-                mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        mSlidingUpPanelLayout.collapsePane();
-                    }
-                });
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            //Toast.makeText(getContext(),"Total Data "+Integer.toString(sum),Toast.LENGTH_SHORT).show();
+            super.onPostExecute(sum);
+            listener.onTaskCompleted();
         }
 
         private void loadJsonFromStream(Realm realm) throws IOException {
@@ -604,18 +658,23 @@ public class MainFragment extends Fragment implements
             }
         }
 
-        public ArrayList<String> getItems(){
-            ArrayList<String> arrayList = new ArrayList<>();
-            for (int i = Math.max(result.size() - 20, 0); i < result.size() ; i++) {
-                arrayList.add(result.get(i).getNamalengkap());
-            }
-            return arrayList;
-        }
-
-        public List<Penerima> loadPenerima() throws IOException {
-            return realm.allObjects(Penerima.class);
+        public List<Penerima> getData() throws IOException {
+            return datapenerima;
         }
 
     }
 
+    public List<Penerima> loadPenerima() throws IOException {
+        return realm.allObjects(Penerima.class);
+    }
+
+    public void set_noKtp(String ktp)
+    {
+        this.noktp = ktp;
+    }
+
+    public String get_noKtp()
+    {
+        return this.noktp;
+    }
 }

@@ -1,8 +1,10 @@
 package com.alphamedia.rutilahu;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.hardware.Camera;
 import android.hardware.Camera.PictureCallback;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -10,13 +12,14 @@ import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -42,39 +45,25 @@ public class DetailActivity extends ActionBarActivity implements SurfaceHolder.C
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        ImageView fotopenerima = (ImageView) findViewById(R.id.fotopenerima);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        /*
         TextView textView = (TextView) findViewById(R.id.nama);
         final TextView ktp = (TextView) findViewById(R.id.ktp);
+        */
 
         //EditText ktp = (EditText) findViewById(R.id.ktp);
         realmConfiguration = new RealmConfiguration.Builder(this).build();
 
-        surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
-        surfaceHolder = surfaceView.getHolder();
+        ArrayList<String> spinnerArray = new ArrayList<String>();
+        spinnerArray.add("SUDAH DICATAT");
+        spinnerArray.add("BELUM DICATAT");
 
-        surfaceHolder.addCallback(this);
-        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
-
-        jpegCallback = new PictureCallback() {
-
-            @Override
-            public void onPictureTaken(byte[] data, Camera camera) {
-                FileOutputStream outStream = null;
-                try {
-                    // System.currentTimeMillis()
-                    outStream = new FileOutputStream(Config.FOTO_DIR + String.format("%s-fotopenerima.jpg", ktp.getText().toString()));
-                    outStream.write(data);
-                    outStream.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } finally {
-                }
-                Toast.makeText(getApplicationContext(), "Picture Saved", Toast.LENGTH_LONG).show();
-                refreshCamera();
-            }
-        };
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray); //selected item will look like a spinner set from XML
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setAdapter(spinnerArrayAdapter);
 
     }
 
@@ -112,6 +101,9 @@ public class DetailActivity extends ActionBarActivity implements SurfaceHolder.C
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void btnFotoPenerima(View view) {
     }
 
     public void fotoTampakDepan(View view) {
@@ -202,9 +194,11 @@ public class DetailActivity extends ActionBarActivity implements SurfaceHolder.C
     }
 
     public void fotoPenerima(View view) {
+        /*
         iv = (ImageView) findViewById(R.id.fotopenerima);
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 0);
+        */
     }
 
     @Override
@@ -214,39 +208,29 @@ public class DetailActivity extends ActionBarActivity implements SurfaceHolder.C
         //iv.setImageBitmap(bp);
     }
 
-    /*
-    PictureCallback jpegCallback = new PictureCallback() {
-        long tt;
+    private void showImage(String fld, String img, String txt)
+    {
+        final Dialog dialog = new Dialog(getApplicationContext());
+        dialog.setContentView(R.layout.imageview);
+        dialog.setTitle("Display Image "+ txt);
 
-        public void onPictureTaken(byte[] data, Camera camera) {
-            FileOutputStream outStream = null;
-            if (data != null)
-            {
-                //Intent mIntent = new Intent();
-                try {
-                    tt = System.currentTimeMillis();
-                    String photoPath = String.format("/sdcard/DCIM/%d.jpg", tt);
-                    outStream = new FileOutputStream(photoPath);
-                    BitmapFactory.Options opt = new BitmapFactory.Options();
-                    opt.inSampleSize = 7;
-                    Bitmap e = BitmapFactory.decodeByteArray(data, 0, data.length, opt);
-                    Bitmap thumb = Bitmap.createScaledBitmap (e, e.getWidth(), e.getHeight(), false);
-                    thumb.compress(Bitmap.CompressFormat.JPEG, 70, outStream);
-                } catch (FileNotFoundException e) {
-                    //e.printStackTrace();
-                } catch (IOException e) {
-                    //e.printStackTrace();
-                } finally {
-                }
-                SystemClock.sleep(200);
-                camera.startPreview();
-                //setResult(FOTO_MODE,mIntent);
-                Log.d(TAG, "onPictureTaken - jpeg");
+        TextView text = (TextView) dialog.findViewById(R.id.text);
+        text.setText(txt);
+
+        ImageView image = (ImageView) dialog.findViewById(R.id.image);
+        String imguri = Config.FOTO_DIR + fld + img;
+        image.setImageURI(Uri.parse(imguri));
+
+        Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
             }
-        }
+        });
+        dialog.show();
+    }
 
-    };
-    */
 
 }
 

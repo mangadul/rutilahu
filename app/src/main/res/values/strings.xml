@@ -59,7 +59,7 @@
     <string name="search_hint_penerima">Nama, Jalan, Kecamatan, Kabupaten</string>
     <string name="title_activity_login">Login</string>
     <string name="button_login">Login</string>
-    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_detail">Input Data Penerima</string>
     <string name="jalan_desa">Jalan Desa</string>
     <string name="namalengkap">Nama Lengkap</string>
     <string name="jk">Jenis Kelamin</string>
@@ -73,8 +73,8 @@
     <string name="provinsi">Provinsi</string>
     <string name="btnfoto">Foto</string>
     <string name="foto_tampak_depan">Tampak Depan</string>
-    <string name="foto_tampak_samping2">Tampak Samping Kanan</string>
-    <string name="foto_tampak_samping1">Tampak Samping Kiri</string>
+    <string name="foto_tampak_samping2">Samping Kanan</string>
+    <string name="foto_tampak_samping1">Samping Kiri</string>
     <string name="foto_tampak_dapur">Foto Dapur</string>
     <string name="foto_jamban">Foto Jamba</string>
     <string name="fotoSumberAir">Foto Sumber Air</string>
@@ -85,5 +85,27 @@
     <string name="status_sudah">SUDAH</string>
     <string name="status_belum">BELUM</string>
     <string name="title_activity_map">Map</string>
+
+    <string name="pilih_status">Status Catat</string>
+    <string name="keterangan">keterangan</string>
+    <string name="hint_alamat">Alamat Penerima</string>
+    <string name="posisi_gps">Posisi GPS</string>
+    <string name="txt_sumber_air">Sumber Air</string>
+    <string name="hint_long">longitude</string>
+    <string name="txt_ket">Keterangan</string>
+    <string name="txt_btn_simpan">SIMPAN</string>
+    <string name="hint_sumber_air">nama file foto sumber air</string>
+    <string name="hint_foto_dapur">nama file foto dapur</string>
+    <string name="txt_jamban">Jamban</string>
+    <string name="hint_foto_jamban">nama file foto jamban</string>
+    <string name="txt_btn_samping_kanan">Tampak Samping Kanan</string>
+    <string name="hint_foto_samping_kanan">nama file foto tampak samping kanan</string>
+    <string name="txt_bnt_samping_kiri">Tampak Samping Kiri</string>
+    <string name="hint_foto_samping_kiri">nama file foto tampak samping kiri</string>
+    <string name="txt_btn_depan">Tampak Depan</string>
+    <string name="hint_foto_depan">nama file foto depan</string>
+    <string name="hint_foto_penerima">Foto Penerima</string>
+    <string name="txt_data_foto">Data Foto</string>
+    <string name="txt_status_catat">Status Catat</string>
 
 </resources>

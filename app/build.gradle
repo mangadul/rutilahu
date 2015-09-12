@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        mangadul {
-            keyAlias 'keystore'
-            keyPassword 'Mt020215as2009'
-            storeFile file('D:/kerjaan/waditra/cert/mangadul.jks')
-            storePassword 'Mt020215as2009'
+        keystore {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('D:/kerjaan/waditra/cert/keystore.jks')
+            storePassword 'android'
         }
     }
     compileSdkVersion 23

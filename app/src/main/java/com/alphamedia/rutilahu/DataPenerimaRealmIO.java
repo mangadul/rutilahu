@@ -77,7 +77,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 realm.close();
             }
             RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
-            Realm.deleteRealm(realmConfiguration);
+            //Realm.deleteRealm(realmConfiguration);
             Realm.setDefaultConfiguration(realmConfiguration);
         } catch (RealmException e)
         {
@@ -266,7 +266,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        realm.close();
+        //realm.close();
     }
 
 
@@ -422,6 +422,5 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         setResult((success) ? -1:0, i);
         this.finish();
     }
-
 
 }
