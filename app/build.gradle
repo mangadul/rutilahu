@@ -43,8 +43,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    //compile 'com.android.support:appcompat-v7:21.0.3'
-    //compile 'com.android.support:support-v4:21.0.3'
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:support-v4:23.0.1'
     compile 'com.android.support:design:23.0.1'
@@ -57,11 +55,4 @@ dependencies {
     compile 'com.sothree.slidinguppanel:library:3.1.1'
     compile 'com.google.android.gms:play-services-location:7.5.0'
     compile 'com.google.android.gms:play-services-maps:7.5.0'
-    //compile 'org.jboss.aerogear:aerogear-android-pipe:2.1.1'
-    //compile 'org.jboss.aerogear:aerogear-android-core:3.0.0'
-    //compile 'org.jboss.aerogear:aerogear-android-pipe:3.0.0'
-    //compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
-    //compile 'com.pkmmte.view:circularimageview:1.1'
-    //compile files('libs/aerogear-android-core-3.0.0-SNAPSHOT.jar')
-    //compile files('libs/aerogear-android-pipe-3.0.0-SNAPSHOT.jar')
 }
