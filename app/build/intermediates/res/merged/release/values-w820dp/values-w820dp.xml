@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/D:/kerjaan/waditra/Android-Lollipop-Swipe-to-Refresh-master/app/src/main/res/values-w820dp/attrs.xml -->
+    <eat-comment/>
+    <declare-styleable name="SlidingUpPanelLayout">
+        <attr format="dimension" name="panelHeight"/>
+        <attr format="dimension" name="shadowHeight"/>
+        <attr format="dimension" name="paralaxOffset"/>
+        <attr format="color" name="fadeColor"/>
+        <attr format="integer" name="flingVelocity"/>
+        <attr format="reference" name="dragView"/>
+        <attr format="boolean" name="overlay"/>
+    </declare-styleable>
+</resources>

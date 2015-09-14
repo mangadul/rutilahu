@@ -1,0 +1,291 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:2:1-138:12
+	package
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:3:5-38
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\debug\AndroidManifest.xml
+	android:versionName
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:2:1-138:12
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\debug\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:2:1-138:12
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\debug\AndroidManifest.xml
+uses-permission#android.permission.CAMERA
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:5:5-65
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:5:22-62
+uses-feature#android.hardware.camera
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:6:5-60
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:6:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:7:5-70
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:7:19-67
+uses-permission#android.permission.VIBRATE
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:9:5-66
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:9:22-63
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:10:5-81
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:22:5-80
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:22:5-80
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:10:22-78
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:11:5-81
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:23:5-80
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:23:5-80
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:11:22-78
+uses-permission#android.permission.ACCESS_COARSE_UPDATES
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:12:5-80
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:12:22-77
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:13:22-76
+uses-permission#android.permission.ACCESS_LOCATION_EXTRA_COMMANDS
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:14:5-89
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:14:22-86
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:15:5-76
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:15:22-73
+uses-permission#android.permission.INTERNET
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:16:5-67
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:21:5-66
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:16:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:17:5-79
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:20:5-78
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:20:5-78
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:17:22-76
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:18:5-75
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:18:22-72
+application
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:20:5-136:19
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:cardview-v7:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.sothree.slidinguppanel:library:3.1.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.sothree.slidinguppanel\library\3.1.1\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-location:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:29:5-20
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:22:5-20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:23:9-41
+	android:allowBackup
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:21:9-35
+	android:icon
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:22:9-45
+	android:theme
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:24:9-53
+meta-data#com.google.android.gms.version
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:26:9-28:68
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:21:9-23:69
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:28:13-66
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:27:13-58
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:30:9-101
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:30:26-99
+uses-feature#0x00020000
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:32:9-81
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:24:5-26:33
+	android:glEsVersion
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:32:23-55
+	android:required
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:32:56-79
+uses-permission#com.alphamedia.rutilahu.permission.MAPS_RECEIVE
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:34:9-90
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:34:26-88
+permission#com.alphamedia.rutilahu.permission.MAPS_RECEIVE
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:35:9-37:51
+	android:protectionLevel
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:37:13-48
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:36:13-75
+activity#com.alphamedia.rutilahu.MainActivity
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:39:9-52:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:41:13-45
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:40:13-41
+intent-filter#android.intent.action.SEARCH
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:42:13-44:29
+action#android.intent.action.SEARCH
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:43:17-71
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:43:25-68
+meta-data#android.app.default_searchable
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:46:13-48:72
+	android:value
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:48:17-69
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:47:17-62
+meta-data#android.app.searchable
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:49:13-51:54
+	android:resource
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:51:17-51
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:50:17-54
+activity#com.alphamedia.rutilahu.DataPenerima
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:53:9-56:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:55:13-65
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:54:13-41
+activity#com.alphamedia.rutilahu.DetailPenerima
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:57:9-60:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:59:13-67
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:58:13-43
+activity#com.alphamedia.rutilahu.SearchActivity
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:61:9-74:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:63:13-58
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:62:13-43
+activity#com.alphamedia.rutilahu.DataPenerimaRealmIO
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:75:9-81:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:77:13-74
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:76:13-48
+intent-filter#android.intent.category.LAUNCHER
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:78:13-80:29
+category#android.intent.category.LAUNCHER
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:79:17-77
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:79:27-74
+activity#com.alphamedia.rutilahu.Download
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:82:9-90:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:84:13-52
+	android:parentActivityName
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:85:13-55
+	android:theme
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:86:13-67
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:83:13-37
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:87:13-89:72
+	android:value
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:89:17-69
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:88:17-63
+activity#com.alphamedia.rutilahu.SettingsaActivity
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:91:9-98:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:93:13-61
+	android:parentActivityName
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:94:13-62
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:92:13-46
+activity#com.alphamedia.rutilahu.UploadActivity
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:99:9-103:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:101:13-58
+	android:theme
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:102:13-67
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:100:13-43
+activity#com.alphamedia.rutilahu.LoginActivity
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:104:9-113:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:106:13-45
+	android:theme
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:107:13-67
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:105:13-42
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:108:13-112:29
+action#android.intent.action.MAIN
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:109:17-69
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:109:25-66
+activity#com.alphamedia.rutilahu.DetailActivity
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:114:9-121:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:116:13-58
+	android:parentActivityName
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:117:13-62
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:115:13-43
+activity#com.alphamedia.rutilahu.MapActivity
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:123:9-130:20
+	android:label
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:125:13-55
+	android:parentActivityName
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:126:13-62
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:124:13-40
+meta-data#com.google.android.geo.API_KEY
+ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:132:9-134:70
+	android:value
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:134:13-68
+	android:name
+		ADDED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml:133:13-58
+uses-sdk
+INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:design:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:appcompat-v7:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.sothree.slidinguppanel:library:3.1.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.sothree.slidinguppanel\library\3.1.1\AndroidManifest.xml:7:5-43
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-location:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:28:5-42
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+MERGED from [com.google.android.gms:play-services-maps:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\AndroidManifest.xml:28:5-42
+MERGED from [com.google.android.gms:play-services-base:7.5.0] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:23.0.1] D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\AndroidManifest.xml:20:5-43
+	android:targetSdkVersion
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\debug\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\main\AndroidManifest.xml
+		INJECTED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\debug\AndroidManifest.xml
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\src\debug\AndroidManifest.xml:2:1-4:12 reason: com.google.android.gms.maps requested WRITE_EXTERNAL_STORAGE

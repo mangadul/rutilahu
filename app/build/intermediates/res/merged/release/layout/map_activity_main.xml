@@ -1,0 +1,7 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    class="com.google.android.gms.maps.SupportMapFragment">
+</FrameLayout><!-- From: file:/D:/kerjaan/waditra/Android-Lollipop-Swipe-to-Refresh-master/app/src/main/res/layout/map_activity_main.xml -->
