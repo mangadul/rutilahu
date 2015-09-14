@@ -645,7 +645,8 @@ public class MainFragment extends Fragment implements
             {
                 InputStream stream = new FileInputStream(initialFile);
                 try {
-                    realm.createAllFromJson(Penerima.class, stream);
+                    //realm.createAllFromJson(Penerima.class, stream);
+                    realm.createOrUpdateAllFromJson(Penerima.class, stream);
                 } catch (IOException e) {
                     Log.e("Error: ", e.getMessage() + " - getStackTrace: " + e.getStackTrace().toString());
                 } finally {

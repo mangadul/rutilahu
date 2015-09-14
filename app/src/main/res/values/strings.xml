@@ -94,18 +94,20 @@
     <string name="hint_long">longitude</string>
     <string name="txt_ket">Keterangan</string>
     <string name="txt_btn_simpan">SIMPAN</string>
-    <string name="hint_sumber_air">nama file foto sumber air</string>
-    <string name="hint_foto_dapur">nama file foto dapur</string>
+    <string name="hint_sumber_air">foto sumber air</string>
+    <string name="hint_foto_dapur">foto dapur</string>
     <string name="txt_jamban">Jamban</string>
-    <string name="hint_foto_jamban">nama file foto jamban</string>
-    <string name="txt_btn_samping_kanan">Tampak Samping Kanan</string>
-    <string name="hint_foto_samping_kanan">nama file foto tampak samping kanan</string>
-    <string name="txt_bnt_samping_kiri">Tampak Samping Kiri</string>
-    <string name="hint_foto_samping_kiri">nama file foto tampak samping kiri</string>
+    <string name="hint_foto_jamban">foto jamban</string>
+    <string name="txt_btn_samping_kanan">Samping Kanan</string>
+    <string name="hint_foto_samping_kanan">tampak samping kanan</string>
+    <string name="txt_bnt_samping_kiri">Samping Kiri</string>
+    <string name="hint_foto_samping_kiri">tampak samping kiri</string>
     <string name="txt_btn_depan">Tampak Depan</string>
-    <string name="hint_foto_depan">nama file foto depan</string>
+    <string name="hint_foto_depan">foto depan</string>
     <string name="hint_foto_penerima">Foto Penerima</string>
     <string name="txt_data_foto">Data Foto</string>
     <string name="txt_status_catat">Status Catat</string>
+    <string name="IMEI">imei</string>
+    <string name="imei">IMEI</string>
 
 </resources>

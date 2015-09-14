@@ -33,6 +33,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 import io.realm.exceptions.RealmException;
+import io.realm.exceptions.RealmMigrationNeededException;
 
 
 public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderManager.LoaderCallbacks<String> {
@@ -94,7 +95,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             realm = Realm.getInstance(this);
         } catch (RealmException e) {
             Log.e("Error: ", e.getMessage());
-            Realm.deleteRealmFile(this);
+            //realm.close();
+            //Realm.deleteRealmFile(this);
         }
     }
 
@@ -266,7 +268,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //realm.close();
+        realm.close();
+        //Realm.deleteRealm(realmConfiguration);
     }
 
 
@@ -303,15 +306,22 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 @Override
                 public void onItemClick(AdapterView<?> parent, final View view,
                                         int position, long id) {
-                    TextView textView = (TextView) view.findViewById(R.id.nama);
+                    TextView nama = (TextView) view.findViewById(R.id.nama);
                     TextView ktp = (TextView) view.findViewById(R.id.ktp);
+                    TextView alamat = (TextView) view.findViewById(R.id.alamat);
+                    TextView kecamatan = (TextView) view.findViewById(R.id.kecamatan);
+                    TextView kabupaten = (TextView) view.findViewById(R.id.kabupaten);
                     Toast.makeText(getApplicationContext(),
-                            "Nama: " + textView.getText().toString() + " - " +
+                            "Nama: " + nama.getText().toString() + " - " +
                             "KTP: " + ktp.getText().toString(),
                             Toast.LENGTH_SHORT)
                             .show();
                     Intent i = new Intent(DataPenerimaRealmIO.this, DetailActivity.class);
+                    i.putExtra("nama", nama.getText().toString());
                     i.putExtra("ktp", ktp.getText().toString());
+                    i.putExtra("alamat", alamat.getText().toString());
+                    i.putExtra("kecamatan", kecamatan.getText().toString());
+                    i.putExtra("kabupaten", kabupaten.getText().toString());
                     startActivity(i);
                 }
 
@@ -330,11 +340,11 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         }
     }
 
-    public static class ApiLoaderTask extends AsyncTaskLoader<String> {
+    private static class ApiLoaderTask extends AsyncTaskLoader<String> {
 
         private String mFile;
         private Class mClass;
-        private Realm realm;
+        private Realm realm = null;
 
         public ApiLoaderTask(Context context, Class klass, String file) {
             super(context);
@@ -345,7 +355,14 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         @Override
         public String loadInBackground() {
             Log.d("Loader", mFile);
-            realm = Realm.getInstance(getContext());
+            Realm realm = null;
+            try {
+                realm = Realm.getInstance(getContext());
+            } catch (RealmMigrationNeededException ex) {
+                ex.printStackTrace();
+                //File realmFile = new File(Config.APP_DIR, "default.realm");
+                //Realm.migrateRealmAtPath(realmFile.getAbsolutePath(), new Migration());
+            }
             realm.beginTransaction();
             try {
                 loadJsonFromStream(realm);
@@ -380,7 +397,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             {
                 InputStream stream = new FileInputStream(initialFile);
                 try {
-                    realm.createAllFromJson(Penerima.class, stream);
+                    //realm.createAllFromJson(Penerima.class, stream);
+                    realm.createOrUpdateAllFromJson(Penerima.class, stream);
                 } catch (IOException e) {
                     Log.e("Error: ", e.getMessage() + " - getStackTrace: " + e.getStackTrace().toString());
                     realm.cancelTransaction();

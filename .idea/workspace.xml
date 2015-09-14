@@ -40,35 +40,19 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#1238#1256#0" expanded="true" />
-                <element signature="e#1416#1455#0" expanded="true" />
-                <element signature="e#1965#1983#0" expanded="true" />
-                <element signature="e#2508#2546#0" expanded="true" />
-                <element signature="e#2656#2696#0" expanded="true" />
-                <element signature="e#2806#2837#0" expanded="true" />
-                <element signature="e#3371#3418#0" expanded="true" />
-                <element signature="e#3656#3681#0" expanded="true" />
-                <element signature="e#4074#4108#0" expanded="true" />
-                <element signature="e#4445#4476#0" expanded="true" />
-                <element signature="e#4652#4670#0" expanded="true" />
-                <element signature="e#5051#5082#0" expanded="true" />
-                <element signature="e#5190#5218#0" expanded="true" />
-              </folding>
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DataPenerimaRealmIO.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DataPenerimaRealmIO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.71666664">
+              <caret line="444" column="0" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9779#10661#0" expanded="true" />
-                <element signature="e#10660#10661#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,77 +62,24 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding>
-                <element signature="e#6207#6357#0" expanded="true" />
-                <element signature="e#6356#6357#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataClass.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+              <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3862#4030#0" expanded="true" />
+                <element signature="e#4029#4030#0" expanded="true" />
+                <element signature="e#7650#11140#0" expanded="true" />
+                <element signature="e#11139#11140#0" expanded="true" />
+                <element signature="e#11556#11557#0" expanded="true" />
+                <element signature="e#11586#11587#0" expanded="true" />
+                <element signature="e#13488#13638#0" expanded="true" />
+                <element signature="e#13637#13638#0" expanded="true" />
+                <element signature="e#13822#13823#0" expanded="true" />
+                <element signature="e#13858#13859#0" expanded="true" />
+                <element signature="e#15635#15636#0" expanded="true" />
+                <element signature="e#15667#15668#0" expanded="true" />
+                <element signature="e#15703#15704#0" expanded="true" />
+                <element signature="e#15736#15737#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainFragment.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/map/MainFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.030411448">
-              <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#841#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#4829#4885#0" expanded="true" />
-                <element signature="e#6941#7414#0" expanded="true" />
-                <element signature="e#7413#7414#0" expanded="true" />
-                <element signature="e#7513#7915#0" expanded="true" />
-                <element signature="e#7914#7915#0" expanded="true" />
-                <element signature="e#10117#12028#0" expanded="true" />
-                <element signature="e#12027#12028#0" expanded="true" />
-                <element signature="e#16615#16616#0" expanded="true" />
-                <element signature="e#16657#16658#0" expanded="true" />
-                <element signature="e#17299#17300#0" expanded="true" />
-                <element signature="e#17343#17344#0" expanded="true" />
-                <element signature="e#17560#17847#0" expanded="true" />
-                <element signature="e#17846#17847#0" expanded="true" />
-                <element signature="e#18625#18626#0" expanded="true" />
-                <element signature="e#18652#18653#0" expanded="true" />
-                <element signature="e#18712#18713#0" expanded="true" />
-                <element signature="e#18741#18742#0" expanded="true" />
-                <element signature="e#20062#20063#0" expanded="true" />
-                <element signature="e#20102#20103#0" expanded="true" />
-                <element signature="e#20144#20145#0" expanded="true" />
-                <element signature="e#20183#20184#0" expanded="true" />
-                <element signature="e#20237#20238#0" expanded="true" />
-                <element signature="e#20276#20277#0" expanded="true" />
-                <element signature="e#20329#20330#0" expanded="true" />
-                <element signature="e#20367#20368#0" expanded="true" />
-                <element signature="e#20993#20994#0" expanded="true" />
-                <element signature="e#21039#21040#0" expanded="true" />
-                <element signature="e#23188#23189#0" expanded="true" />
-                <element signature="e#23220#23221#0" expanded="true" />
-                <element signature="e#23257#23258#0" expanded="true" />
-                <element signature="e#23290#23291#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataPenerimaAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -156,38 +87,45 @@
       <file leaf-file-name="activity_detail.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.3793104">
-              <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
-              <folding>
-                <element signature="e#514#549#0" expanded="true" />
-                <element signature="e#575#610#0" expanded="true" />
-                <element signature="e#634#667#0" expanded="true" />
-                <element signature="e#694#727#0" expanded="true" />
-                <element signature="e#1861#1887#0" expanded="true" />
-                <element signature="e#2051#2073#0" expanded="true" />
-                <element signature="e#2268#2291#0" expanded="true" />
-                <element signature="e#2780#2808#0" expanded="true" />
-                <element signature="e#3765#3790#0" expanded="true" />
-                <element signature="e#4070#4093#0" expanded="true" />
-                <element signature="e#4751#4783#0" expanded="true" />
-                <element signature="e#5066#5096#0" expanded="true" />
-                <element signature="e#5774#5807#0" expanded="true" />
-                <element signature="e#6090#6121#0" expanded="true" />
-                <element signature="e#6795#6821#0" expanded="true" />
-                <element signature="e#7094#7114#0" expanded="true" />
-                <element signature="e#7776#7801#0" expanded="true" />
-                <element signature="e#8752#8777#0" expanded="true" />
-                <element signature="e#9055#9079#0" expanded="true" />
-                <element signature="e#9448#9468#0" expanded="true" />
-                <element signature="e#9879#9898#0" expanded="true" />
-                <element signature="e#10501#10518#0" expanded="true" />
-                <element signature="e#10972#10992#0" expanded="true" />
-                <element signature="e#11490#11514#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-4.1034484">
+              <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataPenerimaAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="7" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/map/MainFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="652" column="41" selection-start-line="652" selection-start-column="41" selection-end-line="652" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Penerima.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/Penerima.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -1622,16 +1560,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/MapActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/imageview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/OnTaskCompleted.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/penerima_realm_activity.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataClass.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/Penerima.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/map/MainFragment.java" />
       </list>
     </option>
@@ -1669,6 +1609,9 @@
     </navigator>
     <panes>
       <pane id="ProjectPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -1689,24 +1632,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Android-Lollipop-Swipe-to-Refresh-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1772,16 +1697,9 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1996,19 +1914,19 @@
     <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.49092284" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.48789713" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5121029" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33901194" sideWeight="0.48487142" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33901194" sideWeight="0.4697428" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.48789713" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.48487142" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.49394855" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6507666" sideWeight="0.5151286" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33901194" sideWeight="0.53025717" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2322239" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2017,6 +1935,29 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.48789713" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270869" sideWeight="0.5121029" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33901194" sideWeight="0.47276855" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.48487142" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.49394855" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33901194" sideWeight="0.52723145" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2322239" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -2034,6 +1975,272 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="179" column="0" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3862#4030#0" expanded="true" />
+            <element signature="e#4029#4030#0" expanded="true" />
+            <element signature="e#7650#11140#0" expanded="true" />
+            <element signature="e#11139#11140#0" expanded="true" />
+            <element signature="e#11556#11557#0" expanded="true" />
+            <element signature="e#11586#11587#0" expanded="true" />
+            <element signature="e#13488#13638#0" expanded="true" />
+            <element signature="e#13637#13638#0" expanded="true" />
+            <element signature="e#13822#13823#0" expanded="true" />
+            <element signature="e#13858#13859#0" expanded="true" />
+            <element signature="e#15635#15636#0" expanded="true" />
+            <element signature="e#15667#15668#0" expanded="true" />
+            <element signature="e#15703#15704#0" expanded="true" />
+            <element signature="e#15736#15737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/Penerima.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3862#4030#0" expanded="true" />
+            <element signature="e#4029#4030#0" expanded="true" />
+            <element signature="e#7650#11140#0" expanded="true" />
+            <element signature="e#11139#11140#0" expanded="true" />
+            <element signature="e#11556#11557#0" expanded="true" />
+            <element signature="e#11586#11587#0" expanded="true" />
+            <element signature="e#13488#13638#0" expanded="true" />
+            <element signature="e#13637#13638#0" expanded="true" />
+            <element signature="e#13822#13823#0" expanded="true" />
+            <element signature="e#13858#13859#0" expanded="true" />
+            <element signature="e#15635#15636#0" expanded="true" />
+            <element signature="e#15667#15668#0" expanded="true" />
+            <element signature="e#15703#15704#0" expanded="true" />
+            <element signature="e#15736#15737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/map/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#841#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#10117#12028#0" expanded="false" />
+            <element signature="e#12027#12028#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
+          <folding>
+            <element signature="e#514#549#0" expanded="true" />
+            <element signature="e#575#610#0" expanded="true" />
+            <element signature="e#634#667#0" expanded="true" />
+            <element signature="e#694#727#0" expanded="true" />
+            <element signature="e#3309#3331#0" expanded="true" />
+            <element signature="e#3833#3861#0" expanded="true" />
+            <element signature="e#4818#4843#0" expanded="true" />
+            <element signature="e#5121#5144#0" expanded="true" />
+            <element signature="e#5811#5843#0" expanded="true" />
+            <element signature="e#6126#6156#0" expanded="true" />
+            <element signature="e#6834#6867#0" expanded="true" />
+            <element signature="e#7150#7181#0" expanded="true" />
+            <element signature="e#7855#7881#0" expanded="true" />
+            <element signature="e#8154#8174#0" expanded="true" />
+            <element signature="e#8836#8861#0" expanded="true" />
+            <element signature="e#9812#9837#0" expanded="true" />
+            <element signature="e#10115#10139#0" expanded="true" />
+            <element signature="e#10734#10753#0" expanded="true" />
+            <element signature="e#11660#11674#0" expanded="true" />
+            <element signature="e#11928#11948#0" expanded="true" />
+            <element signature="e#12446#12470#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3862#4030#0" expanded="true" />
+            <element signature="e#4029#4030#0" expanded="true" />
+            <element signature="e#7650#11140#0" expanded="true" />
+            <element signature="e#11139#11140#0" expanded="true" />
+            <element signature="e#11556#11557#0" expanded="true" />
+            <element signature="e#11586#11587#0" expanded="true" />
+            <element signature="e#13488#13638#0" expanded="true" />
+            <element signature="e#13637#13638#0" expanded="true" />
+            <element signature="e#13822#13823#0" expanded="true" />
+            <element signature="e#13858#13859#0" expanded="true" />
+            <element signature="e#15635#15636#0" expanded="true" />
+            <element signature="e#15667#15668#0" expanded="true" />
+            <element signature="e#15703#15704#0" expanded="true" />
+            <element signature="e#15736#15737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="97" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/map/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#841#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#10117#12028#0" expanded="false" />
+            <element signature="e#12027#12028#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
+          <folding>
+            <element signature="e#514#549#0" expanded="true" />
+            <element signature="e#575#610#0" expanded="true" />
+            <element signature="e#634#667#0" expanded="true" />
+            <element signature="e#694#727#0" expanded="true" />
+            <element signature="e#3309#3331#0" expanded="true" />
+            <element signature="e#3833#3861#0" expanded="true" />
+            <element signature="e#4818#4843#0" expanded="true" />
+            <element signature="e#5121#5144#0" expanded="true" />
+            <element signature="e#5811#5843#0" expanded="true" />
+            <element signature="e#6126#6156#0" expanded="true" />
+            <element signature="e#6834#6867#0" expanded="true" />
+            <element signature="e#7150#7181#0" expanded="true" />
+            <element signature="e#7855#7881#0" expanded="true" />
+            <element signature="e#8154#8174#0" expanded="true" />
+            <element signature="e#8836#8861#0" expanded="true" />
+            <element signature="e#9812#9837#0" expanded="true" />
+            <element signature="e#10115#10139#0" expanded="true" />
+            <element signature="e#10734#10753#0" expanded="true" />
+            <element signature="e#11660#11674#0" expanded="true" />
+            <element signature="e#11928#11948#0" expanded="true" />
+            <element signature="e#12446#12470#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2056,7 +2263,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3862#4030#0" expanded="true" />
+            <element signature="e#4029#4030#0" expanded="true" />
+            <element signature="e#7650#11140#0" expanded="true" />
+            <element signature="e#11139#11140#0" expanded="true" />
+            <element signature="e#11556#11557#0" expanded="true" />
+            <element signature="e#11586#11587#0" expanded="true" />
+            <element signature="e#13488#13638#0" expanded="true" />
+            <element signature="e#13637#13638#0" expanded="true" />
+            <element signature="e#13822#13823#0" expanded="true" />
+            <element signature="e#13858#13859#0" expanded="true" />
+            <element signature="e#15635#15636#0" expanded="true" />
+            <element signature="e#15667#15668#0" expanded="true" />
+            <element signature="e#15703#15704#0" expanded="true" />
+            <element signature="e#15736#15737#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2069,26 +2292,23 @@
             <element signature="e#575#610#0" expanded="true" />
             <element signature="e#634#667#0" expanded="true" />
             <element signature="e#694#727#0" expanded="true" />
-            <element signature="e#1861#1887#0" expanded="true" />
-            <element signature="e#2051#2073#0" expanded="true" />
-            <element signature="e#2268#2291#0" expanded="true" />
-            <element signature="e#2780#2808#0" expanded="true" />
-            <element signature="e#3765#3790#0" expanded="true" />
-            <element signature="e#4070#4093#0" expanded="true" />
-            <element signature="e#4751#4783#0" expanded="true" />
-            <element signature="e#5066#5096#0" expanded="true" />
-            <element signature="e#5774#5807#0" expanded="true" />
-            <element signature="e#6090#6121#0" expanded="true" />
-            <element signature="e#6795#6821#0" expanded="true" />
-            <element signature="e#7094#7114#0" expanded="true" />
-            <element signature="e#7776#7801#0" expanded="true" />
-            <element signature="e#8752#8777#0" expanded="true" />
-            <element signature="e#9055#9079#0" expanded="true" />
-            <element signature="e#9448#9468#0" expanded="true" />
-            <element signature="e#9879#9898#0" expanded="true" />
-            <element signature="e#10501#10518#0" expanded="true" />
-            <element signature="e#10972#10992#0" expanded="true" />
-            <element signature="e#11490#11514#0" expanded="true" />
+            <element signature="e#3309#3331#0" expanded="true" />
+            <element signature="e#3833#3861#0" expanded="true" />
+            <element signature="e#4818#4843#0" expanded="true" />
+            <element signature="e#5121#5144#0" expanded="true" />
+            <element signature="e#5811#5843#0" expanded="true" />
+            <element signature="e#6126#6156#0" expanded="true" />
+            <element signature="e#6834#6867#0" expanded="true" />
+            <element signature="e#7150#7181#0" expanded="true" />
+            <element signature="e#7855#7881#0" expanded="true" />
+            <element signature="e#8154#8174#0" expanded="true" />
+            <element signature="e#8836#8861#0" expanded="true" />
+            <element signature="e#9812#9837#0" expanded="true" />
+            <element signature="e#10115#10139#0" expanded="true" />
+            <element signature="e#10734#10753#0" expanded="true" />
+            <element signature="e#11660#11674#0" expanded="true" />
+            <element signature="e#11928#11948#0" expanded="true" />
+            <element signature="e#12446#12470#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2108,7 +2328,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39534885">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2124,7 +2343,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33242506">
           <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2166,17 +2384,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail_penerima.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/penerima_realm_activity.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2192,7 +2399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09264305">
           <caret line="2" column="33" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2201,158 +2407,140 @@
         <state vertical-scroll-proportion="0.78746593">
           <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1462#1463#0" expanded="true" />
-            <element signature="e#1493#1494#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1462#1463#0" expanded="false" />
+            <element signature="e#1493#1494#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1238#1256#0" expanded="true" />
-            <element signature="e#1416#1455#0" expanded="true" />
-            <element signature="e#1965#1983#0" expanded="true" />
-            <element signature="e#2508#2546#0" expanded="true" />
-            <element signature="e#2656#2696#0" expanded="true" />
-            <element signature="e#2806#2837#0" expanded="true" />
-            <element signature="e#3371#3418#0" expanded="true" />
-            <element signature="e#3656#3681#0" expanded="true" />
-            <element signature="e#4074#4108#0" expanded="true" />
-            <element signature="e#4445#4476#0" expanded="true" />
-            <element signature="e#4652#4670#0" expanded="true" />
-            <element signature="e#5051#5082#0" expanded="true" />
-            <element signature="e#5190#5218#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.63506263">
+          <caret line="97" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36842105">
-          <caret line="74" column="40" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.6421471">
+          <caret line="92" column="52" selection-start-line="92" selection-start-column="52" selection-end-line="92" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3793104">
-          <caret line="108" column="36" selection-start-line="108" selection-start-column="36" selection-end-line="108" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.08765653">
+          <caret line="103" column="26" selection-start-line="103" selection-start-column="26" selection-end-line="103" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/api/GPSTracker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4722222">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
           <folding>
-            <element signature="e#514#549#0" expanded="true" />
-            <element signature="e#575#610#0" expanded="true" />
-            <element signature="e#634#667#0" expanded="true" />
-            <element signature="e#694#727#0" expanded="true" />
-            <element signature="e#1861#1887#0" expanded="true" />
-            <element signature="e#2051#2073#0" expanded="true" />
-            <element signature="e#2268#2291#0" expanded="true" />
-            <element signature="e#2780#2808#0" expanded="true" />
-            <element signature="e#3765#3790#0" expanded="true" />
-            <element signature="e#4070#4093#0" expanded="true" />
-            <element signature="e#4751#4783#0" expanded="true" />
-            <element signature="e#5066#5096#0" expanded="true" />
-            <element signature="e#5774#5807#0" expanded="true" />
-            <element signature="e#6090#6121#0" expanded="true" />
-            <element signature="e#6795#6821#0" expanded="true" />
-            <element signature="e#7094#7114#0" expanded="true" />
-            <element signature="e#7776#7801#0" expanded="true" />
-            <element signature="e#8752#8777#0" expanded="true" />
-            <element signature="e#9055#9079#0" expanded="true" />
-            <element signature="e#9448#9468#0" expanded="true" />
-            <element signature="e#9879#9898#0" expanded="true" />
-            <element signature="e#10501#10518#0" expanded="true" />
-            <element signature="e#10972#10992#0" expanded="true" />
-            <element signature="e#11490#11514#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.37777779">
+          <caret line="8" column="50" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail_penerima.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataClass.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/Penerima.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#6207#6357#0" expanded="true" />
-            <element signature="e#6356#6357#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="324" column="13" selection-start-line="324" selection-start-column="13" selection-end-line="324" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#9779#10661#0" expanded="true" />
-            <element signature="e#10660#10661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/map/MainFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.030411448">
-          <caret line="180" column="0" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="652" column="41" selection-start-line="652" selection-start-column="41" selection-end-line="652" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.1034484">
+          <caret line="101" column="29" selection-start-line="101" selection-start-column="29" selection-end-line="101" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
           <folding>
-            <element signature="e#0#841#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#4829#4885#0" expanded="true" />
-            <element signature="e#6941#7414#0" expanded="true" />
-            <element signature="e#7413#7414#0" expanded="true" />
-            <element signature="e#7513#7915#0" expanded="true" />
-            <element signature="e#7914#7915#0" expanded="true" />
-            <element signature="e#10117#12028#0" expanded="true" />
-            <element signature="e#12027#12028#0" expanded="true" />
-            <element signature="e#16615#16616#0" expanded="true" />
-            <element signature="e#16657#16658#0" expanded="true" />
-            <element signature="e#17299#17300#0" expanded="true" />
-            <element signature="e#17343#17344#0" expanded="true" />
-            <element signature="e#17560#17847#0" expanded="true" />
-            <element signature="e#17846#17847#0" expanded="true" />
-            <element signature="e#18625#18626#0" expanded="true" />
-            <element signature="e#18652#18653#0" expanded="true" />
-            <element signature="e#18712#18713#0" expanded="true" />
-            <element signature="e#18741#18742#0" expanded="true" />
-            <element signature="e#20062#20063#0" expanded="true" />
-            <element signature="e#20102#20103#0" expanded="true" />
-            <element signature="e#20144#20145#0" expanded="true" />
-            <element signature="e#20183#20184#0" expanded="true" />
-            <element signature="e#20237#20238#0" expanded="true" />
-            <element signature="e#20276#20277#0" expanded="true" />
-            <element signature="e#20329#20330#0" expanded="true" />
-            <element signature="e#20367#20368#0" expanded="true" />
-            <element signature="e#20993#20994#0" expanded="true" />
-            <element signature="e#21039#21040#0" expanded="true" />
-            <element signature="e#23188#23189#0" expanded="true" />
-            <element signature="e#23220#23221#0" expanded="true" />
-            <element signature="e#23257#23258#0" expanded="true" />
-            <element signature="e#23290#23291#0" expanded="true" />
+            <element signature="e#3862#4030#0" expanded="true" />
+            <element signature="e#4029#4030#0" expanded="true" />
+            <element signature="e#7650#11140#0" expanded="true" />
+            <element signature="e#11139#11140#0" expanded="true" />
+            <element signature="e#11556#11557#0" expanded="true" />
+            <element signature="e#11586#11587#0" expanded="true" />
+            <element signature="e#13488#13638#0" expanded="true" />
+            <element signature="e#13637#13638#0" expanded="true" />
+            <element signature="e#13822#13823#0" expanded="true" />
+            <element signature="e#13858#13859#0" expanded="true" />
+            <element signature="e#15635#15636#0" expanded="true" />
+            <element signature="e#15667#15668#0" expanded="true" />
+            <element signature="e#15703#15704#0" expanded="true" />
+            <element signature="e#15736#15737#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/alphamedia/rutilahu/DataPenerimaRealmIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71666664">
+          <caret line="444" column="0" selection-start-line="444" selection-start-column="0" selection-end-line="444" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

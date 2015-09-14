@@ -1,12 +1,13 @@
 package com.alphamedia.rutilahu;
 
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 public class Penerima extends RealmObject {
 
     private long id_penerima;
     private long no_urut;
-    private String ktp;
+    @PrimaryKey private String ktp;
     private String kk;
     private String namalengkap;
     private String jenis_kelamin;
@@ -33,6 +34,9 @@ public class Penerima extends RealmObject {
     private String tgl_update;
     private String tgl_catat;
     private boolean is_catat;
+    private String deviceID;
+
+    public String getdeviceID() { return deviceID; }
 
     public long getId_penerima() { return id_penerima; }
     public long getNo_urut() { return no_urut; }
@@ -66,7 +70,10 @@ public class Penerima extends RealmObject {
     public boolean getIs_catat() { return is_catat; }
     public String getTgl_catat() { return tgl_catat; }
 
-    //public String getKecamatan() { return kecamatan; }
+
+    public void setDeviceID(String devid) {
+        this.deviceID= devid;
+    }
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
@@ -186,20 +193,4 @@ public class Penerima extends RealmObject {
         this.no_urut = no_urut;
     }
 
-    /*
-    public long strDateToLong(String tgl)
-    {
-        long milliseconds = 0;
-        SimpleDateFormat f = new SimpleDateFormat("yyyy-mm-dd");
-        try {
-
-            Date d = f.parse(tgl);
-            milliseconds = d.getTime();
-        } catch (ParseException e)
-        {
-            Log.e("Error: ", e.getMessage());
-        }
-        return milliseconds;
-    }
-    */
 }

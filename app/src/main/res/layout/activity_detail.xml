@@ -27,27 +27,61 @@
         android:layout_height="wrap_content">
 
         <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/img_foto_penerimaatas"
-            android:onClick="btnFotoPenerima"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/btn_foto_penerimaatas"
             android:src="@drawable/ic_person_outline_black_36dp" />
 
         <TextView
             android:layout_alignParentRight="true"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/nama"
+            android:textSize="14sp"
+            android:layout_toRightOf="@+id/btn_foto_penerimaatas">
+        </TextView>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nama"
+            android:textSize="12sp"
+            android:id="@+id/ktp"
+            android:layout_toRightOf="@+id/btn_foto_penerimaatas">
+        </TextView>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ktp"
+            android:textSize="10sp"
             android:id="@+id/alamat"
-            android:layout_toRightOf="@+id/img_foto_penerimaatas">
+            android:layout_toRightOf="@+id/btn_foto_penerimaatas">
+        </TextView>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alamat"
+            android:id="@+id/kecamatan"
+            android:textSize="10sp"
+            android:layout_toRightOf="@+id/btn_foto_penerimaatas">
+        </TextView>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_below="@id/kecamatan"
+            android:id="@+id/kabupaten"
+            android:layout_toRightOf="@+id/btn_foto_penerimaatas">
         </TextView>
 
     </RelativeLayout>
-
-    <TextView android:id="@+id/text_spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dip"
-        android:text="@string/txt_status_catat" />
 
     <Spinner
         android:layout_height="wrap_content"
@@ -55,12 +89,6 @@
         android:layout_width="match_parent"
         android:prompt="@string/pilih_status">
     </Spinner>
-
-    <TextView android:id="@+id/foto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/txt_data_foto" />
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -108,7 +136,7 @@
         <EditText
             android:editable="false"
             android:hint="@string/hint_foto_depan"
-            android:id="@+id/foto_tampak_depan"
+            android:id="@+id/et_tampak_depan"
             android:layout_height="wrap_content"
             android:layout_width="178dp"
             android:layout_weight="1.01"
@@ -118,7 +146,7 @@
         <Button
             android:text="@string/txt_btn_depan"
             android:layout_width="wrap_content"
-            android:id="@+id/afoto"
+            android:id="@+id/btn_foto_depan"
             android:layout_height="match_parent">
         </Button>
     </LinearLayout>
@@ -276,12 +304,6 @@
 
     </LinearLayout>
 
-    <TextView android:id="@+id/posisi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dip"
-        android:text="@string/posisi_gps" />
-
     <RelativeLayout
         android:id="@+id/relativeLayout3"
         android:layout_width="match_parent"
@@ -309,12 +331,6 @@
 
     </RelativeLayout>
 
-    <TextView android:id="@+id/ket"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dip"
-        android:text="@string/txt_ket" />
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="fill_parent"
@@ -323,9 +339,18 @@
         android:layout_height="match_parent">
 
         <EditText
+            android:id="@+id/devid"
+            android:editable="false"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/imei" />
+
+        <EditText
             android:id="@+id/keterangan"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:lines="1"
             android:hint="@string/keterangan"
             android:inputType="textLongMessage"/>
 
