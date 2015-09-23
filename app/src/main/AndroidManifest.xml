@@ -82,11 +82,11 @@
         <activity
             android:name=".Download"
             android:label="@string/action_download"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".DataPenerimaRealmIO"
             android:theme="@android:style/Theme.Holo.Light.Dialog" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.alphamedia.rutilahu.MainActivity" />
+                android:value="com.alphamedia.rutilahu.DataPenerimaRealmIO" />
         </activity>
         <activity
             android:name=".SettingsaActivity"
@@ -114,6 +114,16 @@
         <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
+            android:parentActivityName=".DataPenerimaRealmIO" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.alphamedia.rutilahu.DataPenerimaRealmIO" />
+        </activity>
+
+        <activity
+            android:name=".Backup"
+            android:label="@string/title_activity_backup"
+            android:theme="@android:style/Theme.Holo.Light.Dialog"
             android:parentActivityName=".DataPenerimaRealmIO" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -18,6 +18,10 @@
         <item>ic_file_upload_black_24dp</item>
         <item>ic_place_black_24dp</item>
     </array>
+    <string-array name="pilihanmenu">
+        <item>View</item>
+        <item>Input Data</item>
+    </string-array>
     <!-- From: file:/D:/kerjaan/waditra/Android-Lollipop-Swipe-to-Refresh-master/app/src/main/res/values/strings_activity_settingsa.xml -->
     <eat-comment/>
     <string-array name="pref_example_list_titles">
@@ -410,6 +414,7 @@
     <!-- From: file:/D:/kerjaan/waditra/Android-Lollipop-Swipe-to-Refresh-master/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="about_url">http://demo.alphamedia.web.id/</string>
+    <string name="action_backup">Backup Data</string>
     <string name="action_download">Download Data</string>
     <string name="action_map">Peta</string>
     <string name="action_save">Simpan</string>
@@ -474,6 +479,9 @@
     <string name="drawer_close">drawer close</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_text"/>
+    <string name="edit_kk">perbaharui data kk</string>
+    <string name="edit_ktp">perbaharui data ktp</string>
+    <string name="edit_nama">perbaharui nama lengkap</string>
     <string name="exit_message">Apakah anda yakin akan keluar dari aplikasi ?</string>
     <string name="exit_title">Keluar Aplikasi</string>
     <string name="fotoPenerima">Foto Penerima</string>
@@ -487,6 +495,7 @@
     <string name="gambar_icon_detail">Gambar Icon Detail</string>
     <string name="hello_world">Hello world!</string>
     <string name="hint_alamat">Alamat Penerima</string>
+    <string name="hint_foto_belakang">tampak belakang</string>
     <string name="hint_foto_dapur">foto dapur</string>
     <string name="hint_foto_depan">foto depan</string>
     <string name="hint_foto_jamban">foto jamban</string>
@@ -554,6 +563,7 @@
     <string name="status_sudah">SUDAH</string>
     <string name="tgl_lahir">Tgl Lahir</string>
     <string name="title_about">Tentang Program</string>
+    <string name="title_activity_backup">Backup Data</string>
     <string name="title_activity_data_penerima">DataPenerima</string>
     <string name="title_activity_data_penerima_realm_io">Data Penerima</string>
     <string name="title_activity_detail">Input Data Penerima</string>
@@ -571,6 +581,7 @@
     <string name="title_item_detail">Item Detail</string>
     <string name="title_item_list">Items</string>
     <string name="title_sync">Sinkronisasi Data</string>
+    <string name="txt_belakang">Tampak Belakang</string>
     <string name="txt_bnt_samping_kiri">Samping Kiri</string>
     <string name="txt_btn_depan">Tampak Depan</string>
     <string name="txt_btn_samping_kanan">Samping Kanan</string>

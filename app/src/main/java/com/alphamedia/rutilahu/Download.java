@@ -8,7 +8,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Window;
 import android.widget.Toast;
@@ -101,24 +101,8 @@ public class Download extends Activity {
                 e.printStackTrace();
             }
             mProgressDialog.dismiss();
-
-            // wait for 5 second
-            final Handler handler = new Handler();
-            new Thread(new Runnable() {
-                public void run() {
-                    try {
-                        Thread.sleep(5000);
-                    } catch (Exception e) {
-                        Log.e("Error: ", e.getMessage());
-                    }
-                    handler.post(new Runnable() {
-                        public void run() {
-                            mProgressDialog.setMessage("Uncompress finish...");
-                        }
-                    });
-                }
-            }).start();
-
+            SystemClock.sleep(5000);
+            mProgressDialog.setMessage("Uncompress finish...");
             finish();
         }
     }

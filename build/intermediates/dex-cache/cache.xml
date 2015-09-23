@@ -2,18 +2,25 @@
 <items version="2" >
 
     <item
-        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
+        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-f6140dc19136884b27c4bfb067ab13f721555187.jar" />
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\picasso-2.5.2-c48c9c2d4c0b2ee4c37d7c731015ab042043ebfd.jar" />
     </item>
     <item
-        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-441575adb09e49e09463e6958761349f487fd896.jar" />
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\gson-2.3.1-2c1e2a79ec78ff70a37ceb8cf0f82a89d2f52c55.jar" />
+    </item>
+    <item
+        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-3a938fd7b108178416dfdbdf325a833fb8340325.jar" />
     </item>
     <item
         jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
@@ -23,25 +30,11 @@
         <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-2b386eaf2a70465aaf0e5d269d16e4dfa2484317.jar" />
     </item>
     <item
-        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
+        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\okhttp-2.5.0-843306a5f50bfbdf33a079a440deeae70930f858.jar" />
-    </item>
-    <item
-        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="a78183f30e769a98ab4820794f597763088d3065">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-6273029e70178dfe85d937fe788f50cd1b8b9637.jar" />
-    </item>
-    <item
-        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\picasso-2.5.2-c48c9c2d4c0b2ee4c37d7c731015ab042043ebfd.jar" />
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-f6140dc19136884b27c4bfb067ab13f721555187.jar" />
     </item>
     <item
         jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\jars\classes.jar"
@@ -51,11 +44,25 @@
         <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-94a5cb81ec16884495fe3f9b38e409b1f134bfa4.jar" />
     </item>
     <item
-        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.sothree.slidinguppanel\library\3.1.1\jars\classes.jar"
+        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="76351d3022d4a2803789c01046aa0aa4b0d5d134">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-b51adbdf7a0408f00baf777a576609ecfd33bda9.jar" />
+        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-4cbc14ea49f1a64093f3ba330fef0c7b199535d8.jar" />
+    </item>
+    <item
+        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="a681c044244d9fc375198588297a39ba78028423">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\retrofit-1.9.0-f1087ab99afdeab00bc284ed3a5d9f0eb412b0b4.jar" />
+    </item>
+    <item
+        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\io.realm\realm-android\0.82.2\c6325383149a08e5cb668bdc4d3c790708636e47\realm-android-0.82.2.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c6325383149a08e5cb668bdc4d3c790708636e47">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\realm-android-0.82.2-dddfa53a29ce48fc9c39350be519d718cc24845a.jar" />
     </item>
     <item
         jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
@@ -72,11 +79,32 @@
         <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\okio-1.6.0-6966ba7ae59a21aea1d10e65af5b916329d55614.jar" />
     </item>
     <item
+        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\internal_impl-23.0.1-3bda1b1480fefe56bf8f5857548cf67f0ac2a717.jar" />
+    </item>
+    <item
+        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.5.0\4de2b4ed3445c37ec1720a7d214712e845a24636\okhttp-2.5.0.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="4de2b4ed3445c37ec1720a7d214712e845a24636">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\okhttp-2.5.0-843306a5f50bfbdf33a079a440deeae70930f858.jar" />
+    </item>
+    <item
         jar="C:\Users\mangadul\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.1\support-annotations-23.0.1.jar"
         jumboMode="false"
         revision="23.0.0"
         sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
         <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\support-annotations-23.0.1-8592b481967896f2fb52b8b16ef8b5254ebe386e.jar" />
+    </item>
+    <item
+        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-441575adb09e49e09463e6958761349f487fd896.jar" />
     </item>
     <item
         jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
@@ -86,46 +114,18 @@
         <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-e62faf772acdc7a85dbf73be2583483fe40475d8.jar" />
     </item>
     <item
-        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.1\jars\libs\internal_impl-23.0.1.jar"
+        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.sothree.slidinguppanel\library\3.1.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\internal_impl-23.0.1-3bda1b1480fefe56bf8f5857548cf67f0ac2a717.jar" />
+        sha1="76351d3022d4a2803789c01046aa0aa4b0d5d134">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-b51adbdf7a0408f00baf777a576609ecfd33bda9.jar" />
     </item>
     <item
-        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.0"
-        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\gson-2.3.1-2c1e2a79ec78ff70a37ceb8cf0f82a89d2f52c55.jar" />
-    </item>
-    <item
-        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\io.realm\realm-android\0.82.2\c6325383149a08e5cb668bdc4d3c790708636e47\realm-android-0.82.2.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="c6325383149a08e5cb668bdc4d3c790708636e47">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\realm-android-0.82.2-dddfa53a29ce48fc9c39350be519d718cc24845a.jar" />
-    </item>
-    <item
-        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-3a938fd7b108178416dfdbdf325a833fb8340325.jar" />
-    </item>
-    <item
-        jar="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="4356e230a981d1bbf047d848b91bc0d9b7c5bacc">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-4cbc14ea49f1a64093f3ba330fef0c7b199535d8.jar" />
-    </item>
-    <item
-        jar="C:\Users\mangadul\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit\retrofit\1.9.0\a681c044244d9fc375198588297a39ba78028423\retrofit-1.9.0.jar"
-        jumboMode="false"
-        revision="23.0.0"
-        sha1="a681c044244d9fc375198588297a39ba78028423">
-        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\retrofit-1.9.0-f1087ab99afdeab00bc284ed3a5d9f0eb412b0b4.jar" />
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="D:\kerjaan\waditra\Android-Lollipop-Swipe-to-Refresh-master\app\build\intermediates\pre-dexed\release\classes-6273029e70178dfe85d937fe788f50cd1b8b9637.jar" />
     </item>
 
 </items>

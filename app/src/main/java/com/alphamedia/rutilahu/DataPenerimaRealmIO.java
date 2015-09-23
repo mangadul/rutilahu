@@ -14,14 +14,19 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.alphamedia.rutilahu.api.CircleTransform;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,6 +35,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 import io.realm.exceptions.RealmException;
@@ -54,10 +60,13 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     private Drawable mIconOpenSearch;
 
     RealmResults<Penerima> result;
+    RealmChangeListener realmListener;
 
     private static final int LOAD_NETWORK_A = 1;
     private static final int LOAD_NETWORK_B = 2;
     private static final int LOAD_NETWORK_C = 3;
+
+    AlertDialog.Builder dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,17 +82,21 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         mIconCloseSearch = getResources()
                 .getDrawable(R.drawable.ic_clear_black_18dp);
 
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
+        Realm.setDefaultConfiguration(realmConfiguration);
+
+        /*
         try {
             if (realm != null) {
                 realm.close();
             }
             RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
-            //Realm.deleteRealm(realmConfiguration);
             Realm.setDefaultConfiguration(realmConfiguration);
         } catch (RealmException e)
         {
             Log.e("Error: ", e.getMessage());
         }
+        */
 
         getLoaderManager().initLoader(LOAD_NETWORK_C, null, this).forceLoad();
     }
@@ -93,11 +106,25 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         super.onStart();
         try {
             realm = Realm.getInstance(this);
+            realmListener = new RealmChangeListener() {
+                @Override
+                public void onChange() {
+                    if (mAdapter != null) {
+                        mAdapter.notifyDataSetChanged();
+                    }
+                    Log.i("RealmListener","Data Penerima di database sudah diupdate!");
+                }};
+            realm.addChangeListener(realmListener);
         } catch (RealmException e) {
             Log.e("Error: ", e.getMessage());
             //realm.close();
             //Realm.deleteRealmFile(this);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -143,6 +170,12 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
 
         if (id == R.id.action_downloads) {
             Intent download = new Intent(getApplicationContext(),Download.class);
+            startActivity(download);
+            return true;
+        }
+
+        if (id == R.id.action_backup) {
+            Intent download = new Intent(getApplicationContext(),Backup.class);
             startActivity(download);
             return true;
         }
@@ -268,6 +301,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        realm.removeChangeListener(realmListener);
         realm.close();
         //Realm.deleteRealm(realmConfiguration);
     }
@@ -275,7 +309,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
 
     @Override
     public Loader<String> onCreateLoader(int i, Bundle bundle) {
-        //return new ApiLoaderTask(this, DataPenerimaRealmIO.class, "C.json");
         switch (i) {
             case LOAD_NETWORK_C:
                 return new ApiLoaderTask(this, DataPenerimaRealmIO.class, "data.json");
@@ -306,29 +339,232 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 @Override
                 public void onItemClick(AdapterView<?> parent, final View view,
                                         int position, long id) {
+
                     TextView nama = (TextView) view.findViewById(R.id.nama);
-                    TextView ktp = (TextView) view.findViewById(R.id.ktp);
-                    TextView alamat = (TextView) view.findViewById(R.id.alamat);
-                    TextView kecamatan = (TextView) view.findViewById(R.id.kecamatan);
-                    TextView kabupaten = (TextView) view.findViewById(R.id.kabupaten);
-                    Toast.makeText(getApplicationContext(),
-                            "Nama: " + nama.getText().toString() + " - " +
-                            "KTP: " + ktp.getText().toString(),
-                            Toast.LENGTH_SHORT)
-                            .show();
-                    Intent i = new Intent(DataPenerimaRealmIO.this, DetailActivity.class);
-                    i.putExtra("nama", nama.getText().toString());
-                    i.putExtra("ktp", ktp.getText().toString());
-                    i.putExtra("alamat", alamat.getText().toString());
-                    i.putExtra("kecamatan", kecamatan.getText().toString());
-                    i.putExtra("kabupaten", kabupaten.getText().toString());
-                    startActivity(i);
+
+                    dialog = new AlertDialog.Builder(DataPenerimaRealmIO.this);
+                    dialog.setTitle("Pilih "+nama.getText())
+                        .setItems(R.array.pilihanmenu, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                switch (which){
+                                    case 0:
+                                        viewData(view);
+                                        /*
+                                        Toast.makeText(getApplicationContext(),
+                                                "Pilihan View Data", Toast.LENGTH_SHORT
+                                                ).show();
+                                                */
+                                        break;
+                                    case 1:
+                                        goDetail(view);
+                                        break;
+                                }
+                            }
+                        });
+                    dialog.create();
+                    dialog.show();
                 }
 
             });
 
         }
     }
+
+    private void viewData(View view)
+    {
+        TextView idpenerima = (TextView) view.findViewById(R.id.idpenerima);
+
+        try {
+            RealmResults<Penerima> result = (RealmResults<Penerima>) loadPenerima();
+            Penerima p = result.where()
+                    .equalTo("id_penerima", Integer.parseInt(idpenerima.getText().toString()))
+                    .findFirst();
+
+            Log.d("Total load data...", Integer.toString(result.size()));
+
+            Log.d("ID penerima", Integer.toString(p.getId_penerima()));
+            Log.d("Data Nama penerima", p.getNamalengkap());
+            Log.d("Foto penerima", p.getImg_foto_penerima());
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(DataPenerimaRealmIO.this);
+            LayoutInflater inflater = DataPenerimaRealmIO.this.getLayoutInflater();
+            View vdetail = inflater.inflate(R.layout.dialog_detail, null);
+
+            String alamat = new StringBuilder()
+                    .append(p.getJalan_desa()).append(" ")
+                    .append(" Rt. ")
+                    .append(p.getRt())
+                    .append(" Rw. ")
+                    .append(p.getRw())
+                    .append(" Desa ")
+                    .append(p.getDesa()).toString();
+
+            String catat = (p.getIs_catat()) ? "SUDAH DIDATA" : "BELUM DIDATA";
+
+            TextView vidp = (TextView) vdetail.findViewById(R.id.idpenerima);
+            vidp.setText(Integer.toString(p.getId_penerima()));
+            ImageView img_penerima = (ImageView) vdetail.findViewById(R.id.img_foto_penerima);
+            File p_penerima = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_foto_penerima()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_penerima)
+                    .error(R.drawable.ic_person_outline_black_24dp)
+                    .placeholder(R.drawable.ic_person_outline_black_24dp)
+                    .transform(new CircleTransform())
+                    .into(img_penerima);
+            TextView vnama = (TextView) vdetail.findViewById(R.id.nama);
+            vnama.setText(p.getNamalengkap());
+
+            TextView vstatus = (TextView) vdetail.findViewById(R.id.status);
+            vstatus.setText(catat);
+            TextView valamat = (TextView) vdetail.findViewById(R.id.alamat);
+            valamat.setText(alamat);
+            TextView vktp = (TextView) vdetail.findViewById(R.id.ktp);
+            vktp.setText(p.getKtp().isEmpty() ? "(DATA KTP KOSONG)" : p.getKtp());
+            TextView vkk = (TextView) vdetail.findViewById(R.id.kk);
+            vkk.setText(p.getKk().isEmpty() ? "(DATA KK KOSONG)" : p.getKk());
+            TextView vkec = (TextView) vdetail.findViewById(R.id.kecamatan);
+            vkec.setText(p.getKecamatan());
+            TextView vkab = (TextView) vdetail.findViewById(R.id.kabupaten);
+            vkab.setText(p.getKabupaten());
+            TextView fpenerima = (TextView) vdetail.findViewById(R.id.file_foto_penerima);
+            fpenerima.setText(p.getImg_foto_penerima());
+
+            TextView fdepan = (TextView) vdetail.findViewById(R.id.file_foto_depan);
+            fdepan.setText(p.getImg_tampak_depan_rumah());
+            ImageView img_depan = (ImageView) vdetail.findViewById(R.id.img_foto_depan);
+            File p_depan = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_tampak_depan_rumah()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_depan)
+                    .error(R.drawable.ic_photo_black_24dp)
+                    .placeholder(R.drawable.ic_person_outline_black_24dp)
+                    //.fit().centerCrop()
+                    .into(img_depan);
+
+            TextView fsamping1 = (TextView) vdetail.findViewById(R.id.file_foto_samping1);
+            fsamping1.setText(p.getImg_tampak_samping_1());
+            ImageView img_samping1 = (ImageView) vdetail.findViewById(R.id.img_foto_samping1);
+            File p_samping1 = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_tampak_samping_1()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_samping1)
+                    .error(R.drawable.ic_photo_black_24dp)
+                    .placeholder(R.drawable.ic_photo_black_24dp)
+                            //.fit().centerCrop()
+                    .into(img_samping1);
+
+            TextView fsamping2 = (TextView) vdetail.findViewById(R.id.file_foto_samping2);
+            fsamping2.setText(p.getImg_tampak_samping_2());
+            ImageView img_samping2 = (ImageView) vdetail.findViewById(R.id.img_foto_samping2);
+            File p_samping2 = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_tampak_samping_2()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_samping2)
+                    .error(R.drawable.ic_photo_black_24dp)
+                    .placeholder(R.drawable.ic_photo_black_24dp)
+                    //.fit().centerCrop()
+                    .into(img_samping2);
+
+            TextView fjamban = (TextView) vdetail.findViewById(R.id.file_foto_jamban);
+            fjamban.setText(p.getImg_tampak_jamban());
+            ImageView img_jamban = (ImageView) vdetail.findViewById(R.id.img_foto_jamban);
+            File p_jamban = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_tampak_jamban()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_jamban)
+                    .error(R.drawable.ic_photo_black_24dp)
+                    .placeholder(R.drawable.ic_photo_black_24dp)
+                    //.fit().centerCrop()
+                    .into(img_jamban);
+
+            TextView fdapur = (TextView) vdetail.findViewById(R.id.file_foto_dapur);
+            fdapur.setText(p.getImg_tampak_dapur());
+            ImageView img_dapur = (ImageView) vdetail.findViewById(R.id.img_foto_dapur);
+            File p_dapur = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_tampak_dapur()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_dapur)
+                    .error(R.drawable.ic_photo_black_24dp)
+                    .placeholder(R.drawable.ic_photo_black_24dp)
+                    //.fit().centerCrop()
+                    .into(img_dapur);
+
+            TextView fsumberair = (TextView) vdetail.findViewById(R.id.file_foto_sumber_air);
+            fsumberair.setText(p.getImg_tampak_sumber_air());
+            ImageView img_sa = (ImageView) vdetail.findViewById(R.id.img_foto_sumberair);
+            File p_sa = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_tampak_sumber_air()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_sa)
+                    .error(R.drawable.ic_photo_black_24dp)
+                    .placeholder(R.drawable.ic_photo_black_24dp)
+                    //.fit().centerCrop()
+                    .into(img_sa);
+
+            TextView fbelakang = (TextView) vdetail.findViewById(R.id.file_foto_belakang);
+            fbelakang.setText(p.getImg_tampak_sumber_air());
+            ImageView img_belakang = (ImageView) vdetail.findViewById(R.id.img_foto_belakang);
+            File p_belakang = new File(new StringBuilder().append(Config.FOTO_DIR)
+                    .append(Integer.toString(p.getId_penerima()))
+                    .append("/").append(p.getImg_tampak_belakang()).toString());
+            Picasso.with(getApplicationContext())
+                    .load(p_belakang)
+                    .error(R.drawable.ic_photo_black_24dp)
+                    .placeholder(R.drawable.ic_photo_black_24dp)
+                    //.fit().centerCrop()
+                    .into(img_belakang);
+
+            builder.setView(vdetail)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    })
+                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+            builder.create();
+            builder.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void goDetail(View view)
+    {
+        TextView idpenerima = (TextView) view.findViewById(R.id.idpenerima);
+        TextView nama = (TextView) view.findViewById(R.id.nama);
+        TextView status = (TextView) view.findViewById(R.id.status);
+        TextView ktp = (TextView) view.findViewById(R.id.ktp);
+        TextView alamat = (TextView) view.findViewById(R.id.alamat);
+        TextView kecamatan = (TextView) view.findViewById(R.id.kecamatan);
+        TextView kabupaten = (TextView) view.findViewById(R.id.kabupaten);
+        Toast.makeText(getApplicationContext(),
+                "Nama: " + nama.getText().toString() + " - " +
+                        "KTP: " + ktp.getText().toString(),
+                Toast.LENGTH_SHORT)
+                .show();
+        Intent i = new Intent(DataPenerimaRealmIO.this, DetailActivity.class);
+        i.putExtra("id_penerima", Integer.parseInt(idpenerima.getText().toString()));
+        i.putExtra("nama", nama.getText().toString());
+        i.putExtra("ktp", ktp.getText().toString());
+        i.putExtra("status", status.getText().toString());
+        i.putExtra("alamat", alamat.getText().toString());
+        i.putExtra("kecamatan", kecamatan.getText().toString());
+        i.putExtra("kabupaten", kabupaten.getText().toString());
+        startActivity(i);
+    }
+
 
     @Override
     public void onLoaderReset(Loader<String> loader) {
@@ -343,13 +579,13 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     private static class ApiLoaderTask extends AsyncTaskLoader<String> {
 
         private String mFile;
-        private Class mClass;
-        private Realm realm = null;
+        //private Class mClass;
+        //private Realm realm = null;
 
         public ApiLoaderTask(Context context, Class klass, String file) {
             super(context);
             mFile = file;
-            mClass = klass;
+            //mClass = klass;
         }
 
         @Override
@@ -360,12 +596,11 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 realm = Realm.getInstance(getContext());
             } catch (RealmMigrationNeededException ex) {
                 ex.printStackTrace();
-                //File realmFile = new File(Config.APP_DIR, "default.realm");
-                //Realm.migrateRealmAtPath(realmFile.getAbsolutePath(), new Migration());
             }
             realm.beginTransaction();
             try {
-                loadJsonFromStream(realm);
+                List<Penerima> list = realm.allObjects(Penerima.class);
+                if(list.size() <= 0) loadJsonFromStream(realm);
             } catch (IOException e) {
                 e.printStackTrace();
                 realm.cancelTransaction();

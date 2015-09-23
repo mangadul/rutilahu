@@ -109,5 +109,12 @@
     <string name="txt_status_catat">Status Catat</string>
     <string name="IMEI">imei</string>
     <string name="imei">IMEI</string>
+    <string name="hint_foto_belakang">tampak belakang</string>
+    <string name="txt_belakang">Tampak Belakang</string>
+    <string name="edit_ktp">perbaharui data ktp</string>
+    <string name="edit_kk">perbaharui data kk</string>
+    <string name="action_backup">Backup Data</string>
+    <string name="title_activity_backup">Backup Data</string>
+    <string name="edit_nama">perbaharui nama lengkap</string>
 
 </resources>

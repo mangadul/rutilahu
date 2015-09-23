@@ -1,13 +1,16 @@
 package com.alphamedia.rutilahu;
 
+
+import com.google.gson.annotations.SerializedName;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Penerima extends RealmObject {
 
-    private long id_penerima;
+    @SerializedName("id_penerima") @PrimaryKey private int id_penerima;
     private long no_urut;
-    @PrimaryKey private String ktp;
+    private String ktp;
     private String kk;
     private String namalengkap;
     private String jenis_kelamin;
@@ -34,11 +37,15 @@ public class Penerima extends RealmObject {
     private String tgl_update;
     private String tgl_catat;
     private boolean is_catat;
+    private String kode_desa;
+    private String kode_kec;
+    private String kode_kab;
     private String deviceID;
+    private String img_tampak_belakang;
 
     public String getdeviceID() { return deviceID; }
 
-    public long getId_penerima() { return id_penerima; }
+    public int getId_penerima() { return id_penerima; }
     public long getNo_urut() { return no_urut; }
     public String getKtp() { return ktp; }
     public String getKk() { return kk; }
@@ -70,6 +77,11 @@ public class Penerima extends RealmObject {
     public boolean getIs_catat() { return is_catat; }
     public String getTgl_catat() { return tgl_catat; }
 
+    public String getKode_desa() { return kode_desa; }
+    public String getKode_kec() { return kode_kec; }
+    public String getKode_kab() { return kode_kab; }
+
+    public String getImg_tampak_belakang() { return img_tampak_belakang; }
 
     public void setDeviceID(String devid) {
         this.deviceID= devid;
@@ -159,7 +171,7 @@ public class Penerima extends RealmObject {
         this.namalengkap = namalengkap;
     }
 
-    public void setId_penerima(long id_penerima){
+    public void setId_penerima(int id_penerima){
         this.id_penerima = id_penerima;
     }
 
@@ -191,6 +203,22 @@ public class Penerima extends RealmObject {
     public void setNo_urut(long no_urut)
     {
         this.no_urut = no_urut;
+    }
+
+    public void setKode_desa(String kode_desa)
+    {
+        this.kode_desa = kode_desa;
+    }
+
+    public void setKode_kec(String kode_kec) { this.kode_kec = kode_kec; }
+
+    public void setKode_kab(String kode_kab)
+    {
+        this.kode_kab = kode_kab;
+    }
+
+    public void setImg_tampak_belakang(String img_tampak_belakang) {
+        this.img_tampak_belakang = img_tampak_belakang;
     }
 
 }

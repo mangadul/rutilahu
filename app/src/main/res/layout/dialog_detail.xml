@@ -1,0 +1,256 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.alphamedia.rutilahu.DataPenerimaRealmIO"
+    android:layout_height="wrap_content" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/file_foto_penerima"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_penerima"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <TextView
+        android:id="@+id/nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/idpenerima"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp" />
+
+    <TextView
+        android:id="@+id/ktp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <TextView
+        android:id="@+id/kk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <TextView
+        android:id="@+id/alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <TextView
+        android:id="@+id/desa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <TextView
+        android:id="@+id/kecamatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <TextView
+        android:id="@+id/kabupaten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <TextView
+        android:id="@+id/file_foto_depan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_depan"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <TextView
+        android:id="@+id/file_foto_samping1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_samping1"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <TextView
+        android:id="@+id/file_foto_samping2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_samping2"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <TextView
+        android:id="@+id/file_foto_sumber_air"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_sumberair"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <TextView
+        android:id="@+id/file_foto_jamban"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_jamban"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <TextView
+        android:id="@+id/file_foto_dapur"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_dapur"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <TextView
+        android:id="@+id/file_foto_belakang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif" />
+
+    <ImageView
+        android:id="@+id/img_foto_belakang"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:src="@drawable/ic_photo_camera_black_18dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_alignParentLeft="true"
+            android:layout_height="wrap_content"
+            android:id="@+id/loclong"
+            android:layout_width="160dip" >
+        </TextView>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/loclat"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="false"
+            android:layout_width="160dip" >
+        </TextView>
+
+    </RelativeLayout>
+
+</LinearLayout>
+</ScrollView>

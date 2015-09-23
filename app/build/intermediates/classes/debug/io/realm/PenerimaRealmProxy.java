@@ -58,7 +58,11 @@ public class PenerimaRealmProxy extends Penerima
     private static long INDEX_TGL_UPDATE;
     private static long INDEX_TGL_CATAT;
     private static long INDEX_IS_CATAT;
+    private static long INDEX_KODE_DESA;
+    private static long INDEX_KODE_KEC;
+    private static long INDEX_KODE_KAB;
     private static long INDEX_DEVICEID;
+    private static long INDEX_IMG_TAMPAK_BELAKANG;
     private static Map<String, Long> columnIndices;
     private static final List<String> FIELD_NAMES;
     static {
@@ -92,18 +96,22 @@ public class PenerimaRealmProxy extends Penerima
         fieldNames.add("tgl_update");
         fieldNames.add("tgl_catat");
         fieldNames.add("is_catat");
+        fieldNames.add("kode_desa");
+        fieldNames.add("kode_kec");
+        fieldNames.add("kode_kab");
         fieldNames.add("deviceID");
+        fieldNames.add("img_tampak_belakang");
         FIELD_NAMES = Collections.unmodifiableList(fieldNames);
     }
 
     @Override
-    public long getId_penerima() {
+    public int getId_penerima() {
         realm.checkIfValid();
-        return (long) row.getLong(INDEX_ID_PENERIMA);
+        return (int) row.getLong(INDEX_ID_PENERIMA);
     }
 
     @Override
-    public void setId_penerima(long value) {
+    public void setId_penerima(int value) {
         realm.checkIfValid();
         row.setLong(INDEX_ID_PENERIMA, (long) value);
     }
@@ -445,6 +453,42 @@ public class PenerimaRealmProxy extends Penerima
     }
 
     @Override
+    public String getKode_desa() {
+        realm.checkIfValid();
+        return (java.lang.String) row.getString(INDEX_KODE_DESA);
+    }
+
+    @Override
+    public void setKode_desa(String value) {
+        realm.checkIfValid();
+        row.setString(INDEX_KODE_DESA, (String) value);
+    }
+
+    @Override
+    public String getKode_kec() {
+        realm.checkIfValid();
+        return (java.lang.String) row.getString(INDEX_KODE_KEC);
+    }
+
+    @Override
+    public void setKode_kec(String value) {
+        realm.checkIfValid();
+        row.setString(INDEX_KODE_KEC, (String) value);
+    }
+
+    @Override
+    public String getKode_kab() {
+        realm.checkIfValid();
+        return (java.lang.String) row.getString(INDEX_KODE_KAB);
+    }
+
+    @Override
+    public void setKode_kab(String value) {
+        realm.checkIfValid();
+        row.setString(INDEX_KODE_KAB, (String) value);
+    }
+
+    @Override
     public String getdeviceID() {
         realm.checkIfValid();
         return (java.lang.String) row.getString(INDEX_DEVICEID);
@@ -454,6 +498,18 @@ public class PenerimaRealmProxy extends Penerima
     public void setDeviceID(String value) {
         realm.checkIfValid();
         row.setString(INDEX_DEVICEID, (String) value);
+    }
+
+    @Override
+    public String getImg_tampak_belakang() {
+        realm.checkIfValid();
+        return (java.lang.String) row.getString(INDEX_IMG_TAMPAK_BELAKANG);
+    }
+
+    @Override
+    public void setImg_tampak_belakang(String value) {
+        realm.checkIfValid();
+        row.setString(INDEX_IMG_TAMPAK_BELAKANG, (String) value);
     }
 
     public static Table initTable(ImplicitTransaction transaction) {
@@ -488,9 +544,13 @@ public class PenerimaRealmProxy extends Penerima
             table.addColumn(ColumnType.STRING, "tgl_update");
             table.addColumn(ColumnType.STRING, "tgl_catat");
             table.addColumn(ColumnType.BOOLEAN, "is_catat");
+            table.addColumn(ColumnType.STRING, "kode_desa");
+            table.addColumn(ColumnType.STRING, "kode_kec");
+            table.addColumn(ColumnType.STRING, "kode_kab");
             table.addColumn(ColumnType.STRING, "deviceID");
-            table.addSearchIndex(table.getColumnIndex("ktp"));
-            table.setPrimaryKey("ktp");
+            table.addColumn(ColumnType.STRING, "img_tampak_belakang");
+            table.addSearchIndex(table.getColumnIndex("id_penerima"));
+            table.setPrimaryKey("id_penerima");
             return table;
         }
         return transaction.getTable("class_Penerima");
@@ -499,11 +559,11 @@ public class PenerimaRealmProxy extends Penerima
     public static void validateTable(ImplicitTransaction transaction) {
         if (transaction.hasTable("class_Penerima")) {
             Table table = transaction.getTable("class_Penerima");
-            if (table.getColumnCount() != 30) {
-                throw new RealmMigrationNeededException(transaction.getPath(), "Field count does not match - expected 30 but was " + table.getColumnCount());
+            if (table.getColumnCount() != 34) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Field count does not match - expected 34 but was " + table.getColumnCount());
             }
             Map<String, ColumnType> columnTypes = new HashMap<String, ColumnType>();
-            for (long i = 0; i < 30; i++) {
+            for (long i = 0; i < 34; i++) {
                 columnTypes.put(table.getColumnName(i), table.getColumnType(i));
             }
 
@@ -544,13 +604,23 @@ public class PenerimaRealmProxy extends Penerima
             INDEX_TGL_UPDATE = table.getColumnIndex("tgl_update");
             INDEX_TGL_CATAT = table.getColumnIndex("tgl_catat");
             INDEX_IS_CATAT = table.getColumnIndex("is_catat");
+            INDEX_KODE_DESA = table.getColumnIndex("kode_desa");
+            INDEX_KODE_KEC = table.getColumnIndex("kode_kec");
+            INDEX_KODE_KAB = table.getColumnIndex("kode_kab");
             INDEX_DEVICEID = table.getColumnIndex("deviceID");
+            INDEX_IMG_TAMPAK_BELAKANG = table.getColumnIndex("img_tampak_belakang");
 
             if (!columnTypes.containsKey("id_penerima")) {
                 throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'id_penerima'");
             }
             if (columnTypes.get("id_penerima") != ColumnType.INTEGER) {
-                throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'long' for field 'id_penerima'");
+                throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'int' for field 'id_penerima'");
+            }
+            if (table.getPrimaryKey() != table.getColumnIndex("id_penerima")) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Primary key not defined for field 'id_penerima'");
+            }
+            if (!table.hasSearchIndex(table.getColumnIndex("id_penerima"))) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Index not defined for field 'id_penerima'");
             }
             if (!columnTypes.containsKey("no_urut")) {
                 throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'no_urut'");
@@ -563,12 +633,6 @@ public class PenerimaRealmProxy extends Penerima
             }
             if (columnTypes.get("ktp") != ColumnType.STRING) {
                 throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'String' for field 'ktp'");
-            }
-            if (table.getPrimaryKey() != table.getColumnIndex("ktp")) {
-                throw new RealmMigrationNeededException(transaction.getPath(), "Primary key not defined for field 'ktp'");
-            }
-            if (!table.hasSearchIndex(table.getColumnIndex("ktp"))) {
-                throw new RealmMigrationNeededException(transaction.getPath(), "Index not defined for field 'ktp'");
             }
             if (!columnTypes.containsKey("kk")) {
                 throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'kk'");
@@ -726,11 +790,35 @@ public class PenerimaRealmProxy extends Penerima
             if (columnTypes.get("is_catat") != ColumnType.BOOLEAN) {
                 throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'boolean' for field 'is_catat'");
             }
+            if (!columnTypes.containsKey("kode_desa")) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'kode_desa'");
+            }
+            if (columnTypes.get("kode_desa") != ColumnType.STRING) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'String' for field 'kode_desa'");
+            }
+            if (!columnTypes.containsKey("kode_kec")) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'kode_kec'");
+            }
+            if (columnTypes.get("kode_kec") != ColumnType.STRING) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'String' for field 'kode_kec'");
+            }
+            if (!columnTypes.containsKey("kode_kab")) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'kode_kab'");
+            }
+            if (columnTypes.get("kode_kab") != ColumnType.STRING) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'String' for field 'kode_kab'");
+            }
             if (!columnTypes.containsKey("deviceID")) {
                 throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'deviceID'");
             }
             if (columnTypes.get("deviceID") != ColumnType.STRING) {
                 throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'String' for field 'deviceID'");
+            }
+            if (!columnTypes.containsKey("img_tampak_belakang")) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Missing field 'img_tampak_belakang'");
+            }
+            if (columnTypes.get("img_tampak_belakang") != ColumnType.STRING) {
+                throw new RealmMigrationNeededException(transaction.getPath(), "Invalid type 'String' for field 'img_tampak_belakang'");
             }
         } else {
             throw new RealmMigrationNeededException(transaction.getPath(), "The Penerima class is missing from the schema for this Realm.");
@@ -755,8 +843,8 @@ public class PenerimaRealmProxy extends Penerima
         if (update) {
             Table table = realm.getTable(Penerima.class);
             long pkColumnIndex = table.getPrimaryKey();
-            if (!json.isNull("ktp")) {
-                long rowIndex = table.findFirstString(pkColumnIndex, json.getString("ktp"));
+            if (!json.isNull("id_penerima")) {
+                long rowIndex = table.findFirstLong(pkColumnIndex, json.getLong("id_penerima"));
                 if (rowIndex != TableOrView.NO_MATCH) {
                     obj = new PenerimaRealmProxy();
                     obj.realm = realm;
@@ -768,7 +856,7 @@ public class PenerimaRealmProxy extends Penerima
             obj = realm.createObject(Penerima.class);
         }
         if (!json.isNull("id_penerima")) {
-            obj.setId_penerima((long) json.getLong("id_penerima"));
+            obj.setId_penerima((int) json.getInt("id_penerima"));
         }
         if (!json.isNull("no_urut")) {
             obj.setNo_urut((long) json.getLong("no_urut"));
@@ -954,11 +1042,39 @@ public class PenerimaRealmProxy extends Penerima
         if (!json.isNull("is_catat")) {
             obj.setIs_catat((boolean) json.getBoolean("is_catat"));
         }
+        if (json.has("kode_desa")) {
+            if (json.isNull("kode_desa")) {
+                obj.setKode_desa("");
+            } else {
+                obj.setKode_desa((String) json.getString("kode_desa"));
+            }
+        }
+        if (json.has("kode_kec")) {
+            if (json.isNull("kode_kec")) {
+                obj.setKode_kec("");
+            } else {
+                obj.setKode_kec((String) json.getString("kode_kec"));
+            }
+        }
+        if (json.has("kode_kab")) {
+            if (json.isNull("kode_kab")) {
+                obj.setKode_kab("");
+            } else {
+                obj.setKode_kab((String) json.getString("kode_kab"));
+            }
+        }
         if (json.has("deviceID")) {
             if (json.isNull("deviceID")) {
                 obj.setDeviceID("");
             } else {
                 obj.setDeviceID((String) json.getString("deviceID"));
+            }
+        }
+        if (json.has("img_tampak_belakang")) {
+            if (json.isNull("img_tampak_belakang")) {
+                obj.setImg_tampak_belakang("");
+            } else {
+                obj.setImg_tampak_belakang((String) json.getString("img_tampak_belakang"));
             }
         }
         return obj;
@@ -971,7 +1087,7 @@ public class PenerimaRealmProxy extends Penerima
         while (reader.hasNext()) {
             String name = reader.nextName();
             if (name.equals("id_penerima") && reader.peek() != JsonToken.NULL) {
-                obj.setId_penerima((long) reader.nextLong());
+                obj.setId_penerima((int) reader.nextInt());
             } else if (name.equals("no_urut")  && reader.peek() != JsonToken.NULL) {
                 obj.setNo_urut((long) reader.nextLong());
             } else if (name.equals("ktp")) {
@@ -1153,12 +1269,40 @@ public class PenerimaRealmProxy extends Penerima
                 }
             } else if (name.equals("is_catat")  && reader.peek() != JsonToken.NULL) {
                 obj.setIs_catat((boolean) reader.nextBoolean());
+            } else if (name.equals("kode_desa")) {
+                if (reader.peek() == JsonToken.NULL) {
+                    obj.setKode_desa("");
+                    reader.skipValue();
+                } else {
+                    obj.setKode_desa((String) reader.nextString());
+                }
+            } else if (name.equals("kode_kec")) {
+                if (reader.peek() == JsonToken.NULL) {
+                    obj.setKode_kec("");
+                    reader.skipValue();
+                } else {
+                    obj.setKode_kec((String) reader.nextString());
+                }
+            } else if (name.equals("kode_kab")) {
+                if (reader.peek() == JsonToken.NULL) {
+                    obj.setKode_kab("");
+                    reader.skipValue();
+                } else {
+                    obj.setKode_kab((String) reader.nextString());
+                }
             } else if (name.equals("deviceID")) {
                 if (reader.peek() == JsonToken.NULL) {
                     obj.setDeviceID("");
                     reader.skipValue();
                 } else {
                     obj.setDeviceID((String) reader.nextString());
+                }
+            } else if (name.equals("img_tampak_belakang")) {
+                if (reader.peek() == JsonToken.NULL) {
+                    obj.setImg_tampak_belakang("");
+                    reader.skipValue();
+                } else {
+                    obj.setImg_tampak_belakang((String) reader.nextString());
                 }
             } else {
                 reader.skipValue();
@@ -1177,10 +1321,7 @@ public class PenerimaRealmProxy extends Penerima
         if (canUpdate) {
             Table table = realm.getTable(Penerima.class);
             long pkColumnIndex = table.getPrimaryKey();
-            if (object.getKtp() == null) {
-                throw new IllegalArgumentException("Primary key value must not be null.");
-            }
-            long rowIndex = table.findFirstString(pkColumnIndex, object.getKtp());
+            long rowIndex = table.findFirstLong(pkColumnIndex, object.getId_penerima());
             if (rowIndex != TableOrView.NO_MATCH) {
                 realmObject = new PenerimaRealmProxy();
                 realmObject.realm = realm;
@@ -1199,7 +1340,7 @@ public class PenerimaRealmProxy extends Penerima
     }
 
     public static Penerima copy(Realm realm, Penerima newObject, boolean update, Map<RealmObject,RealmObjectProxy> cache) {
-        Penerima realmObject = realm.createObject(Penerima.class, newObject.getKtp());
+        Penerima realmObject = realm.createObject(Penerima.class, newObject.getId_penerima());
         cache.put(newObject, (RealmObjectProxy) realmObject);
         realmObject.setId_penerima(newObject.getId_penerima());
         realmObject.setNo_urut(newObject.getNo_urut());
@@ -1230,13 +1371,17 @@ public class PenerimaRealmProxy extends Penerima
         realmObject.setTgl_update(newObject.getTgl_update() != null ? newObject.getTgl_update() : "");
         realmObject.setTgl_catat(newObject.getTgl_catat() != null ? newObject.getTgl_catat() : "");
         realmObject.setIs_catat(newObject.getIs_catat());
+        realmObject.setKode_desa(newObject.getKode_desa() != null ? newObject.getKode_desa() : "");
+        realmObject.setKode_kec(newObject.getKode_kec() != null ? newObject.getKode_kec() : "");
+        realmObject.setKode_kab(newObject.getKode_kab() != null ? newObject.getKode_kab() : "");
         realmObject.setDeviceID(newObject.getdeviceID() != null ? newObject.getdeviceID() : "");
+        realmObject.setImg_tampak_belakang(newObject.getImg_tampak_belakang() != null ? newObject.getImg_tampak_belakang() : "");
         return realmObject;
     }
 
     static Penerima update(Realm realm, Penerima realmObject, Penerima newObject, Map<RealmObject, RealmObjectProxy> cache) {
-        realmObject.setId_penerima(newObject.getId_penerima());
         realmObject.setNo_urut(newObject.getNo_urut());
+        realmObject.setKtp(newObject.getKtp() != null ? newObject.getKtp() : "");
         realmObject.setKk(newObject.getKk() != null ? newObject.getKk() : "");
         realmObject.setNamalengkap(newObject.getNamalengkap() != null ? newObject.getNamalengkap() : "");
         realmObject.setJenis_kelamin(newObject.getJenis_kelamin() != null ? newObject.getJenis_kelamin() : "");
@@ -1263,7 +1408,11 @@ public class PenerimaRealmProxy extends Penerima
         realmObject.setTgl_update(newObject.getTgl_update() != null ? newObject.getTgl_update() : "");
         realmObject.setTgl_catat(newObject.getTgl_catat() != null ? newObject.getTgl_catat() : "");
         realmObject.setIs_catat(newObject.getIs_catat());
+        realmObject.setKode_desa(newObject.getKode_desa() != null ? newObject.getKode_desa() : "");
+        realmObject.setKode_kec(newObject.getKode_kec() != null ? newObject.getKode_kec() : "");
+        realmObject.setKode_kab(newObject.getKode_kab() != null ? newObject.getKode_kab() : "");
         realmObject.setDeviceID(newObject.getdeviceID() != null ? newObject.getdeviceID() : "");
+        realmObject.setImg_tampak_belakang(newObject.getImg_tampak_belakang() != null ? newObject.getImg_tampak_belakang() : "");
         return realmObject;
     }
 
@@ -1389,8 +1538,24 @@ public class PenerimaRealmProxy extends Penerima
         stringBuilder.append(getIs_catat());
         stringBuilder.append("}");
         stringBuilder.append(",");
+        stringBuilder.append("{kode_desa:");
+        stringBuilder.append(getKode_desa());
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{kode_kec:");
+        stringBuilder.append(getKode_kec());
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{kode_kab:");
+        stringBuilder.append(getKode_kab());
+        stringBuilder.append("}");
+        stringBuilder.append(",");
         stringBuilder.append("{deviceID:");
         stringBuilder.append(getdeviceID());
+        stringBuilder.append("}");
+        stringBuilder.append(",");
+        stringBuilder.append("{img_tampak_belakang:");
+        stringBuilder.append(getImg_tampak_belakang());
         stringBuilder.append("}");
         stringBuilder.append("]");
         return stringBuilder.toString();

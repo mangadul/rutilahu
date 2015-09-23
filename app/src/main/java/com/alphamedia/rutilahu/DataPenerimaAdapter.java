@@ -14,6 +14,7 @@ import com.alphamedia.rutilahu.api.CircleTransform;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import java.io.File;
 import java.util.List;
 
 // This adapter is strictly to interface with the GridView and doesn't
@@ -91,16 +92,17 @@ public class DataPenerimaAdapter extends BaseAdapter {
         if (currentView == null) {
             currentView = inflater.inflate(R.layout.penerima_realm_activity, parent, false);
         }
+        Penerima dp = penerima.get(position);
 
         ImageView avatar = (ImageView) currentView.findViewById(R.id.avatar);
-        //avatar.setImageResource(R.drawable.ic_person_outline_black_24dp);
-        //File f = new File(uri)
+        File f = new File(new StringBuilder().append(Config.FOTO_DIR)
+                .append(Integer.toString(dp.getId_penerima()))
+                .append("/").append(dp.getImg_foto_penerima()).toString());
         Picasso.with(this.inflater.getContext())
-                .load("#")
-                .error(R.drawable.ic_error_black_24dp)
-                .placeholder(R.drawable.ic_person_outline_black_24dp)
-                .resize(200, 200)
-                .transform(new CircleTransform())
+                .load(f)
+                .error(R.drawable.ic_person_outline_black_24dp)
+                .placeholder((dp.getIs_catat() == false) ? R.drawable.ic_check_circle_black_18dp : R.drawable.ic_person_outline_black_24dp)
+                //.transform(new CircleTransform())
                 .into(avatar);
 
         ImageView imgnext = (ImageView) currentView.findViewById(R.id.detail);
@@ -112,7 +114,6 @@ public class DataPenerimaAdapter extends BaseAdapter {
                 .transform(new CircleTransform())
                 .into(imgnext);
 
-        Penerima dp = penerima.get(position);
         String alamat = new StringBuilder().append(dp.getJalan_desa())
                 .append(" Rt. ")
                 .append(dp.getRt())
@@ -129,10 +130,12 @@ public class DataPenerimaAdapter extends BaseAdapter {
         } else {
             currentView.findViewById(R.id.status).setBackgroundColor(9);
         }
+        String noktp = (dp.getKtp().length() > 0) ? dp.getKtp() : "(DATA KTP KOSONG)";
 
         if (dp != null) {
             ((TextView) currentView.findViewById(R.id.nama)).setText(dp.getNamalengkap());
-            ((TextView) currentView.findViewById(R.id.ktp)).setText(dp.getKtp().replace("-","").substring(0,15));
+            ((TextView) currentView.findViewById(R.id.idpenerima)).setText(Integer.toString(dp.getId_penerima()));
+            ((TextView) currentView.findViewById(R.id.ktp)).setText(noktp);
             ((TextView) currentView.findViewById(R.id.alamat)).setText(alamat);
             ((TextView) currentView.findViewById(R.id.kecamatan)).setText(dp.getKecamatan());
             ((TextView) currentView.findViewById(R.id.kabupaten)).setText(dp.getKabupaten());

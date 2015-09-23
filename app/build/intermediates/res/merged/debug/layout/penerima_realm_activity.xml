@@ -35,8 +35,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="#000000"
             android:textSize="18sp"
             android:typeface="sans" />
+
+        <TextView
+            android:id="@+id/idpenerima"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/nama"
+            android:layout_alignParentRight="true"
+            android:textColor="#000000"
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/ktp"

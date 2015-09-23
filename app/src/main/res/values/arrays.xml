@@ -18,4 +18,9 @@
         <item>ic_place_black_24dp</item>
     </array>
 
+    <string-array name="pilihanmenu">
+        <item>View</item>
+        <item>Input Data</item>
+    </string-array>
+
 </resources>

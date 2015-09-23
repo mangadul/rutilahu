@@ -324,7 +324,7 @@ public class MainFragment extends Fragment implements
             realm = Realm.getInstance(getContext());
         } catch (RealmException e) {
             Log.e("Error: ", e.getMessage());
-            Realm.deleteRealmFile(getContext());
+            //Realm.deleteRealmFile(getContext());
         }
         // Connect the client.
         mGoogleApiClient.connect();
@@ -609,7 +609,8 @@ public class MainFragment extends Fragment implements
             realm.beginTransaction();
 
             try {
-                loadJsonFromStream(realm);
+                List<Penerima> list = realm.allObjects(Penerima.class);
+                if(list.size() <= 0) loadJsonFromStream(realm);
             } catch (IOException e) {
                 e.printStackTrace();
                 realm.cancelTransaction();

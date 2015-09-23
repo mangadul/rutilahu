@@ -45,6 +45,15 @@
             android:layout_alignParentRight="true"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/status"
+            android:textSize="9sp"
+            android:layout_toRightOf="@+id/nama">
+        </TextView>
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@id/nama"
             android:textSize="12sp"
             android:id="@+id/ktp"
@@ -83,12 +92,38 @@
 
     </RelativeLayout>
 
+    <EditText
+        android:hint="@string/edit_nama"
+        android:id="@+id/edit_nama"
+        android:maxLength="250"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </EditText>
+
+    <EditText
+        android:hint="@string/edit_ktp"
+        android:maxLength="50"
+        android:id="@+id/edit_ktp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </EditText>
+
+    <EditText
+        android:hint="@string/edit_kk"
+        android:id="@+id/edit_kk"
+        android:maxLength="100"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </EditText>
+
+    <!--
     <Spinner
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:prompt="@string/pilih_status">
     </Spinner>
+    -->
 
     <LinearLayout
         android:layout_height="wrap_content"
@@ -303,6 +338,36 @@
         </Button>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:id="@+id/layout_foto_belakang"
+        android:layout_width="match_parent"
+        android:weightSum="1">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_foto_belakang"
+            android:src="@drawable/ic_photo_black_18dp" />
+
+        <EditText
+            android:editable="false"
+            android:hint="@string/hint_foto_belakang"
+            android:id="@+id/foto_belakang"
+            android:layout_height="wrap_content"
+            android:layout_width="178dp"
+            android:layout_weight="1.01"
+            android:textSize="12dip">
+        </EditText>
+        <Button
+            android:text="@string/txt_belakang"
+            android:layout_width="wrap_content"
+            android:id="@+id/btn_foto_belakang"
+            android:layout_height="match_parent">
+        </Button>
+    </LinearLayout>
+
 
     <RelativeLayout
         android:id="@+id/relativeLayout3"

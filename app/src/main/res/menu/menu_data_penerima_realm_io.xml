@@ -29,6 +29,12 @@
         android:orderInCategory="100"
         app:showAsAction="never" />
 
+    <item android:id="@+id/action_backup"
+        android:title="@string/action_backup"
+        android:icon="@drawable/ic_file_download_black_18dp"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+
     <item android:id="@+id/map"
         android:title="@string/action_map"
         android:icon="@drawable/ic_location_on_black_18dp"

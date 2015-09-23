@@ -3,8 +3,6 @@ package com.alphamedia.rutilahu;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.location.Location;
 import android.location.LocationListener;
@@ -19,12 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,9 +29,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.RealmResults;
 
 public class DetailActivity extends ActionBarActivity {
 
@@ -47,9 +47,11 @@ public class DetailActivity extends ActionBarActivity {
 
     SurfaceHolder surfaceHolder;
 
-    private String e_ktp,
+    private String e_ktp, e_status,
             e_nama, e_alamat,
             e_kecamatan, e_kabupaten;
+
+    private Integer id_penerima;
 
     EditText txtloclong, txtloclat;
 
@@ -62,8 +64,8 @@ public class DetailActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         realmConfiguration = new RealmConfiguration.Builder(this).build();
         Realm.setDefaultConfiguration(realmConfiguration);
@@ -71,7 +73,9 @@ public class DetailActivity extends ActionBarActivity {
         Bundle extras = getIntent().getExtras();
 
         if (extras != null) {
+            id_penerima = extras.getInt("id_penerima");
             e_ktp = extras.getString("ktp");
+            e_status = extras.getString("status");
             e_nama = extras.getString("nama");
             e_alamat = extras.getString("alamat");
             e_kecamatan = extras.getString("kecamatan");
@@ -79,6 +83,7 @@ public class DetailActivity extends ActionBarActivity {
         }
 
         TextView nama = (TextView) findViewById(R.id.nama);
+        TextView status = (TextView) findViewById(R.id.status);
         TextView ktp = (TextView) findViewById(R.id.ktp);
         TextView alamat = (TextView) findViewById(R.id.alamat);
         TextView kecamatan = (TextView) findViewById(R.id.kecamatan);
@@ -88,11 +93,12 @@ public class DetailActivity extends ActionBarActivity {
         txtloclat = (EditText) findViewById(R.id.loclat);
 
         ktp.setText(e_ktp);
-        nama.setText(e_nama);
+        nama.setText(id_penerima.toString()+" / "+e_nama);
+        status.setText(e_status);
         alamat.setText(e_alamat);
         kecamatan.setText(e_kecamatan);
         kabupaten.setText(e_kabupaten);
-        set_ktp(e_ktp);
+        set_id(id_penerima);
 
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String deviceId = telephonyManager.getDeviceId();
@@ -104,6 +110,7 @@ public class DetailActivity extends ActionBarActivity {
         ImageButton btnPenerima = (ImageButton) findViewById(R.id.btn_foto_penerimaatas);
         btnPenerima.setOnClickListener(new fotoClick(etPenerima));
 
+        /*
         final String imguri = Config.FOTO_DIR + e_ktp + etPenerima.getText().toString();
         Bitmap bitmap = BitmapFactory.decodeFile(imguri);
         btnPenerima.setImageBitmap(bitmap);
@@ -116,6 +123,7 @@ public class DetailActivity extends ActionBarActivity {
                 showImage(imguri, "Foto Penerima");
             }
         });
+        */
 
         Button btnfotoPenerima = (Button) findViewById(R.id.foto_penerima);
         btnfotoPenerima.setOnClickListener(new fotoClick(etPenerima));
@@ -144,18 +152,34 @@ public class DetailActivity extends ActionBarActivity {
         final EditText etSumberAir = (EditText) findViewById(R.id.foto_sumber_air);
         btnSumberAir.setOnClickListener(new fotoClick(etSumberAir));
 
+        Button btnBelakang = (Button) findViewById(R.id.btn_foto_belakang);
+        final EditText etBelakang = (EditText) findViewById(R.id.foto_belakang);
+        btnBelakang.setOnClickListener(new fotoClick(etBelakang));
+
         final EditText etDevid = (EditText) findViewById(R.id.devid);
         final EditText etloclat = (EditText) findViewById(R.id.loclat);
         final EditText etloclong = (EditText) findViewById(R.id.loclong);
 
+        final EditText editNama = (EditText) findViewById(R.id.edit_nama);
+        final EditText editKtp = (EditText) findViewById(R.id.edit_ktp);
+        final EditText editKK = (EditText) findViewById(R.id.edit_kk);
+
+        if(!e_nama.isEmpty())
+        {
+            editNama.setText(e_nama);
+            editNama.setKeyListener(null);
+        }
+
+        /*
         ArrayList<String> spinnerArray = new ArrayList<String>();
         spinnerArray.add("SUDAH DICATAT");
         spinnerArray.add("BELUM DICATAT");
-
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setAdapter(spinnerArrayAdapter);
+        */
+
 
         /*
         if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -194,6 +218,10 @@ public class DetailActivity extends ActionBarActivity {
                     Realm realm = Realm.getDefaultInstance();
 
                     // define value
+                    String sNama = (editNama.getText().toString().length() > 0) ? editNama.getText().toString() : "";
+                    String sKTP = (editKtp.getText().toString().length() > 0) ? editKtp.getText().toString() : "";
+                    String sKK = (editKK.getText().toString().length() > 0) ? editKK.getText().toString() : "";
+
                     String fp = (etPenerima.getText().toString().length() > 0) ? etPenerima.getText().toString() : "";
                     String fsdepan = (etDepan.getText().toString().length() > 0) ? etDepan.getText().toString() : "";
                     String fssamping1 = (etSamping1.getText().toString().length() > 0) ? etSamping1.getText().toString() : "";
@@ -205,37 +233,85 @@ public class DetailActivity extends ActionBarActivity {
                     String fslat = (etloclat.getText().toString().length() > 0) ? etloclat.getText().toString() : "";
                     String sdevid = (etDevid.getText().toString().length() > 0) ? etDevid.getText().toString() : "";
 
+                    String sbelakang = (etBelakang.getText().toString().length() > 0) ? etBelakang.getText().toString() : "";
+
                     if(fp.equals("") || fsdepan.equals("") || fssamping1.equals("") || fssamping2.equals("") || fsdapur.equals("")
-                            || fsjamban.equals("") || fssumberair.equals("") || fslong.equals("") || fslat.equals("") || sdevid.equals(""))
+                            || fsjamban.equals("") || fssumberair.equals("") || sbelakang.equals("") || sKK.equals("")
+                            || sNama.equals("") || sKTP.equals("") || fslong.equals("") || fslat.equals("") || sdevid.equals(""))
                     {
                         Toast.makeText(getApplicationContext(),
                                 "Silahkan lengkapi isian terlebih dahulu!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        Penerima p = new Penerima();
+                        //Penerima p = new Penerima();
                         try {
+
+                            RealmResults<Penerima> results = realm.where(Penerima.class).equalTo("id_penerima", id_penerima).findAll();
+
+                            Log.d("Data", Integer.toString(results.size()));
+
+                            // copy result to another list
+                            // ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception
+
+                            /*
                             realm.beginTransaction();
+                            for (int i = 0; i < results.size(); i++) {
+                                Penerima obj = results.get(i);
+                                obj.setId_penerima(id_penerima);
+                                obj.setNamalengkap(sNama);
+                                obj.setKtp(sKTP);
+                                obj.setKk(sKK);
+                                obj.setImg_foto_penerima(fp);
+                                obj.setImg_tampak_depan_rumah(fsdepan);
+                                obj.setImg_tampak_samping_1(fssamping1);
+                                obj.setImg_tampak_samping_2(fssamping2);
+                                obj.setImg_tampak_dapur(fsdapur);
+                                obj.setImg_tampak_jamban(fsjamban);
+                                obj.setImg_tampak_sumber_air(fssumberair);
+                                obj.setImg_tampak_belakang(sbelakang);
+                                obj.setLongitude(fslong);
+                                obj.setLatitude(fslat);
+                                obj.setTgl_update(fsDate);
+                                obj.setTgl_catat(fsDate);
+                                obj.setDeviceID(sdevid);
+                                obj.setIs_catat(true);
+                            }
+                            realm.commitTransaction();
+                            */
 
-                            // update realm object
-                            p.setKtp(e_ktp);
-                            p.setImg_foto_penerima(fp);
-                            p.setImg_tampak_depan_rumah(fsdepan);
-                            p.setImg_tampak_samping_1(fssamping1);
-                            p.setImg_tampak_samping_2(fssamping2);
-                            p.setImg_tampak_dapur(fsdapur);
-                            p.setImg_tampak_jamban(fsjamban);
-                            p.setLongitude(fslong);
-                            p.setLatitude(fslat);
-                            p.setTgl_update(fsDate);
-                            p.setTgl_catat(fsDate);
-                            p.setDeviceID(sdevid);
-                            p.setIs_catat(true);
-
-                            realm.copyToRealmOrUpdate(p);
+                            List<Penerima> list = new ArrayList<>();
+                            list.addAll(results);
+                            realm.beginTransaction();
+                            for (Penerima obj : list) {
+                                obj.setId_penerima(id_penerima);
+                                obj.setNamalengkap(sNama);
+                                obj.setKtp(sKTP);
+                                obj.setKk(sKK);
+                                obj.setImg_foto_penerima(fp);
+                                obj.setImg_tampak_depan_rumah(fsdepan);
+                                obj.setImg_tampak_samping_1(fssamping1);
+                                obj.setImg_tampak_samping_2(fssamping2);
+                                obj.setImg_tampak_dapur(fsdapur);
+                                obj.setImg_tampak_jamban(fsjamban);
+                                obj.setImg_tampak_sumber_air(fssumberair);
+                                obj.setImg_tampak_belakang(sbelakang);
+                                obj.setLongitude(fslong);
+                                obj.setLatitude(fslat);
+                                obj.setTgl_update(fsDate);
+                                obj.setTgl_catat(fsDate);
+                                obj.setDeviceID(sdevid);
+                                obj.setIs_catat(true);
+                            }
                             realm.commitTransaction();
 
+                            Log.d("KTP", sKTP);
+                            Log.d("KK", sKK);
+
                             Toast.makeText(getApplicationContext(),
-                                    new StringBuilder().append("Data ").append(e_ktp).append(" berhasil diupdate").toString(),Toast.LENGTH_SHORT).show();
+                                    new StringBuilder().append("Data ID ").append(id_penerima.toString())
+                                            .append(" Nama ")
+                                            .append(e_nama)
+                                            .append(" berhasil diupdate").toString(),Toast.LENGTH_SHORT).show();
 
                         } catch (Exception e)
                         {
@@ -362,14 +438,13 @@ public class DetailActivity extends ActionBarActivity {
     {
         createDirFoto();
         txtimgname.setText("");
-        String dirfoto = get_ktp();
-        String _spath = Config.FOTO_DIR + dirfoto + fn + ".jpg";
+        String dirfoto = get_id().toString();
+        String _spath = Config.FOTO_DIR + dirfoto + "/" + fn + ".jpg";
         Log.i("AmbilGambar", "startCameraActivity()");
         File file = new File(_spath);
         Uri outputFileUri = Uri.fromFile(file);
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
         intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
-        //setFotoid(txtimgname.getText().toString());
         txtimgname.setText(fn + ".jpg");
         startActivityForResult( intent, 0 );
     }
@@ -389,6 +464,17 @@ public class DetailActivity extends ActionBarActivity {
         return fimg;
     }
 
+    private void set_id(Integer id_penerima)
+    {
+        this.id_penerima = id_penerima;
+    }
+
+    private Integer get_id()
+    {
+        return this.id_penerima;
+    }
+
+    /*
     private void set_ktp(String ktp)
     {
         this.e_ktp = ktp;
@@ -398,11 +484,12 @@ public class DetailActivity extends ActionBarActivity {
     {
         return this.e_ktp;
     }
+    */
 
     private void createDirFoto()
     {
-        String ktp = get_ktp();
-        File fr = new File(Config.FOTO_DIR + ktp);
+        Integer idp = get_id();
+        File fr = new File(Config.FOTO_DIR + idp.toString());
         if(!fr.exists()) {
             fr.mkdirs();
         } else
