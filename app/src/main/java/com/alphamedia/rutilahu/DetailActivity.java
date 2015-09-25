@@ -180,20 +180,6 @@ public class DetailActivity extends ActionBarActivity {
         spinner.setAdapter(spinnerArrayAdapter);
         */
 
-
-        /*
-        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    public void requestPermissions(@NonNull String[] permissions, int requestCode)
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
-            return;
-        }
-        */
         try {
             lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             locationListener = new MyLocationListener();
@@ -243,7 +229,6 @@ public class DetailActivity extends ActionBarActivity {
                                 "Silahkan lengkapi isian terlebih dahulu!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        //Penerima p = new Penerima();
                         try {
 
                             RealmResults<Penerima> results = realm.where(Penerima.class).equalTo("id_penerima", id_penerima).findAll();
@@ -252,32 +237,6 @@ public class DetailActivity extends ActionBarActivity {
 
                             // copy result to another list
                             // ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception
-
-                            /*
-                            realm.beginTransaction();
-                            for (int i = 0; i < results.size(); i++) {
-                                Penerima obj = results.get(i);
-                                obj.setId_penerima(id_penerima);
-                                obj.setNamalengkap(sNama);
-                                obj.setKtp(sKTP);
-                                obj.setKk(sKK);
-                                obj.setImg_foto_penerima(fp);
-                                obj.setImg_tampak_depan_rumah(fsdepan);
-                                obj.setImg_tampak_samping_1(fssamping1);
-                                obj.setImg_tampak_samping_2(fssamping2);
-                                obj.setImg_tampak_dapur(fsdapur);
-                                obj.setImg_tampak_jamban(fsjamban);
-                                obj.setImg_tampak_sumber_air(fssumberair);
-                                obj.setImg_tampak_belakang(sbelakang);
-                                obj.setLongitude(fslong);
-                                obj.setLatitude(fslat);
-                                obj.setTgl_update(fsDate);
-                                obj.setTgl_catat(fsDate);
-                                obj.setDeviceID(sdevid);
-                                obj.setIs_catat(true);
-                            }
-                            realm.commitTransaction();
-                            */
 
                             List<Penerima> list = new ArrayList<>();
                             list.addAll(results);
@@ -388,8 +347,6 @@ public class DetailActivity extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //Bitmap bp = (Bitmap) data.getExtras().get("data");
-        //iv.setImageBitmap(bp);
     }
 
     private void showImage(String fileloc, String txt)
