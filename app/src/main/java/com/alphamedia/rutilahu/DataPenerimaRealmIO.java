@@ -85,19 +85,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
         Realm.setDefaultConfiguration(realmConfiguration);
 
-        /*
-        try {
-            if (realm != null) {
-                realm.close();
-            }
-            RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
-            Realm.setDefaultConfiguration(realmConfiguration);
-        } catch (RealmException e)
-        {
-            Log.e("Error: ", e.getMessage());
-        }
-        */
-
         getLoaderManager().initLoader(LOAD_NETWORK_C, null, this).forceLoad();
     }
 
@@ -111,8 +98,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 public void onChange() {
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
+                        Log.i("RealmListener","Data Penerima di database sudah diupdate!");
                     }
-                    Log.i("RealmListener","Data Penerima di database sudah diupdate!");
                 }};
             realm.addChangeListener(realmListener);
         } catch (RealmException e) {
@@ -137,7 +124,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         mSearchAction = menu.findItem(R.id.action_search);
-        //menu.findItem(R.id.action_save).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -228,7 +214,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             mAdapter.notifyDataSetChanged();
             mListView.invalidate();
         }
-        //realm.close();
     }
 
     private void openSearchBar(String queryText) {
@@ -349,11 +334,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                                 switch (which){
                                     case 0:
                                         viewData(view);
-                                        /*
-                                        Toast.makeText(getApplicationContext(),
-                                                "Pilihan View Data", Toast.LENGTH_SHORT
-                                                ).show();
-                                                */
                                         break;
                                     case 1:
                                         goDetail(view);
@@ -380,7 +360,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .equalTo("id_penerima", Integer.parseInt(idpenerima.getText().toString()))
                     .findFirst();
 
-            Log.d("Total load data...", Integer.toString(result.size()));
+            Log.d("Total load data", Integer.toString(result.size()));
 
             Log.d("ID penerima", Integer.toString(p.getId_penerima()));
             Log.d("Data Nama penerima", p.getNamalengkap());
@@ -411,7 +391,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_penerima)
                     .error(R.drawable.ic_person_outline_black_24dp)
                     .placeholder(R.drawable.ic_person_outline_black_24dp)
-                    .transform(new CircleTransform())
+                    //.transform(new CircleTransform())
                     .into(img_penerima);
             TextView vnama = (TextView) vdetail.findViewById(R.id.nama);
             vnama.setText(p.getNamalengkap());
@@ -441,7 +421,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_depan)
                     .error(R.drawable.ic_photo_black_24dp)
                     .placeholder(R.drawable.ic_person_outline_black_24dp)
-                    //.fit().centerCrop()
                     .into(img_depan);
 
             TextView fsamping1 = (TextView) vdetail.findViewById(R.id.file_foto_samping1);
@@ -454,7 +433,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_samping1)
                     .error(R.drawable.ic_photo_black_24dp)
                     .placeholder(R.drawable.ic_photo_black_24dp)
-                            //.fit().centerCrop()
                     .into(img_samping1);
 
             TextView fsamping2 = (TextView) vdetail.findViewById(R.id.file_foto_samping2);
@@ -467,7 +445,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_samping2)
                     .error(R.drawable.ic_photo_black_24dp)
                     .placeholder(R.drawable.ic_photo_black_24dp)
-                    //.fit().centerCrop()
                     .into(img_samping2);
 
             TextView fjamban = (TextView) vdetail.findViewById(R.id.file_foto_jamban);
@@ -480,7 +457,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_jamban)
                     .error(R.drawable.ic_photo_black_24dp)
                     .placeholder(R.drawable.ic_photo_black_24dp)
-                    //.fit().centerCrop()
                     .into(img_jamban);
 
             TextView fdapur = (TextView) vdetail.findViewById(R.id.file_foto_dapur);
@@ -493,7 +469,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_dapur)
                     .error(R.drawable.ic_photo_black_24dp)
                     .placeholder(R.drawable.ic_photo_black_24dp)
-                    //.fit().centerCrop()
                     .into(img_dapur);
 
             TextView fsumberair = (TextView) vdetail.findViewById(R.id.file_foto_sumber_air);
@@ -506,7 +481,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_sa)
                     .error(R.drawable.ic_photo_black_24dp)
                     .placeholder(R.drawable.ic_photo_black_24dp)
-                    //.fit().centerCrop()
                     .into(img_sa);
 
             TextView fbelakang = (TextView) vdetail.findViewById(R.id.file_foto_belakang);
@@ -519,7 +493,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .load(p_belakang)
                     .error(R.drawable.ic_photo_black_24dp)
                     .placeholder(R.drawable.ic_photo_black_24dp)
-                    //.fit().centerCrop()
                     .into(img_belakang);
 
             builder.setView(vdetail)
@@ -579,13 +552,10 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     private static class ApiLoaderTask extends AsyncTaskLoader<String> {
 
         private String mFile;
-        //private Class mClass;
-        //private Realm realm = null;
 
         public ApiLoaderTask(Context context, Class klass, String file) {
             super(context);
             mFile = file;
-            //mClass = klass;
         }
 
         @Override
