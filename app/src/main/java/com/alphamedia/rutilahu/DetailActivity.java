@@ -213,15 +213,11 @@ public class DetailActivity extends ActionBarActivity {
                                 "Silahkan lengkapi isian terlebih dahulu!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        //Penerima p = new Penerima();
                         try {
 
                             RealmResults<Penerima> results = realm.where(Penerima.class).equalTo("id_penerima", id_penerima).findAll();
 
                             Log.d("Data", Integer.toString(results.size()));
-
-                            // copy result to another list
-                            // ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception
 
                             List<Penerima> list = new ArrayList<>();
                             list.addAll(results);
@@ -296,12 +292,7 @@ public class DetailActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -364,7 +355,6 @@ public class DetailActivity extends ActionBarActivity {
         @Override
         public void onClick( View view ){
             if(this.tv.getText().toString().length() > 0 ) this.tv.setText("");
-            //fid = this.tv.getText().toString().replace(" ", "_");
             fid = this.tv.getHint().toString().replace(" ", "_");
             Log.i("Ambil Gambar Manual", "fotoClick.onClick()" );
             startCameraActivity(this.tv, setfname(fid));
@@ -504,3 +494,8 @@ public class DetailActivity extends ActionBarActivity {
     }
 
 }
+
+/* 
+* copy result to another list
+* ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception 
+ */
