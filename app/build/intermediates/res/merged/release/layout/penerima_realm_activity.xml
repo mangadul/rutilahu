@@ -4,15 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="@android:color/white"
-    android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:gravity="center_vertical"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
     android:paddingLeft="?android:attr/listPreferredItemPaddingLeft"
     android:paddingRight="?android:attr/listPreferredItemPaddingRight"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:padding="0.5dip"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
-    tools:background="@android:color/holo_orange_light"
-    android:padding="0.5dip">
+    tools:background="@android:color/holo_orange_light" >
 
     <ImageView
         android:id="@+id/avatar"
@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/nama"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dip"
+            android:layout_marginRight="30dip"
             android:textColor="#343434"
             android:textSize="12sp" />
     </RelativeLayout>

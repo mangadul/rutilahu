@@ -73,7 +73,7 @@
 
             <TextView
                 android:id="@+id/txt_ktp"
-                android:text="Nama"
+                android:text="KTP"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView
@@ -173,7 +173,7 @@
 
             <TextView
                 android:id="@+id/txt_long"
-                android:text="Kabupaten"
+                android:text="Longitude"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
             <TextView

@@ -84,6 +84,19 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
         Realm.setDefaultConfiguration(realmConfiguration);
 
+        /*
+        try {
+            if (realm != null) {
+                realm.close();
+            }
+            RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
+            Realm.setDefaultConfiguration(realmConfiguration);
+        } catch (RealmException e)
+        {
+            Log.e("Error: ", e.getMessage());
+        }
+        */
+
         getLoaderManager().initLoader(LOAD_NETWORK_C, null, this).forceLoad();
     }
 
@@ -97,8 +110,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 public void onChange() {
                     if (mAdapter != null) {
                         mAdapter.notifyDataSetChanged();
-                        Log.i("RealmListener","Data Penerima di database sudah diupdate!");
                     }
+                    Log.i("RealmListener","Data Penerima di database sudah diupdate!");
                 }};
             realm.addChangeListener(realmListener);
         } catch (RealmException e) {
@@ -123,6 +136,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         mSearchAction = menu.findItem(R.id.action_search);
+        //menu.findItem(R.id.action_save).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -213,6 +227,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             mAdapter.notifyDataSetChanged();
             mListView.invalidate();
         }
+        //realm.close();
     }
 
     private void openSearchBar(String queryText) {
@@ -331,17 +346,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                         .setItems(R.array.pilihanmenu, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 switch (which){
-<<<<<<< HEAD
                                     case 0: viewData(view); break;
                                     case 1: goDetail(view); break;
-=======
-                                    case 0:
-                                        viewData(view);
-                                        break;
-                                    case 1:
-                                        goDetail(view);
-                                        break;
->>>>>>> 9c4e8dbee1e2becba582a94d8066854230105d8f
                                 }
                             }
                         });
@@ -364,15 +370,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .equalTo("id_penerima", Integer.parseInt(idpenerima.getText().toString()))
                     .findFirst();
 
-<<<<<<< HEAD
-=======
-            Log.d("Total load data", Integer.toString(result.size()));
-
-            Log.d("ID penerima", Integer.toString(p.getId_penerima()));
-            Log.d("Data Nama penerima", p.getNamalengkap());
-            Log.d("Foto penerima", p.getImg_foto_penerima());
-
->>>>>>> 9c4e8dbee1e2becba582a94d8066854230105d8f
             AlertDialog.Builder builder = new AlertDialog.Builder(DataPenerimaRealmIO.this);
             LayoutInflater inflater = DataPenerimaRealmIO.this.getLayoutInflater();
             View vdetail = inflater.inflate(R.layout.dialog_detail, null);
@@ -382,9 +379,7 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                     .append(" Rt. ")
                     .append(p.getRt())
                     .append(" Rw. ")
-                    .append(p.getRw())
-                    .append(" Desa ")
-                    .append(p.getDesa()).toString();
+                    .append(p.getRw()).toString();
 
             String catat = (p.getIs_catat()) ? "SUDAH DIDATA" : "BELUM DIDATA";
 
@@ -421,11 +416,11 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             fpenerima.setText(p.getImg_foto_penerima());
 
             TextView vlong = (TextView) vdetail.findViewById(R.id.loclong);
-            vlong.setText("Longitude: "+p.getLongitude());
+            vlong.setText(p.getLongitude());
             TextView vlat = (TextView) vdetail.findViewById(R.id.loclat);
-            vlat.setText("Latitude: "+p.getLatitude());
+            vlat.setText(p.getLatitude());
             TextView vketerangan = (TextView) vdetail.findViewById(R.id.keterangan);
-            vketerangan.setText("Keterangan: "+p.getKeterangan());
+            vketerangan.setText(p.getKeterangan());
 
             TextView fdepan = (TextView) vdetail.findViewById(R.id.file_foto_depan);
             fdepan.setText(p.getImg_tampak_depan_rumah());
@@ -563,16 +558,8 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
 
     private static class ApiLoaderTask extends AsyncTaskLoader<String> {
 
-<<<<<<< HEAD
         public ApiLoaderTask(Context context) {
             super(context);
-=======
-        private String mFile;
-
-        public ApiLoaderTask(Context context, Class klass, String file) {
-            super(context);
-            mFile = file;
->>>>>>> 9c4e8dbee1e2becba582a94d8066854230105d8f
         }
 
         @Override

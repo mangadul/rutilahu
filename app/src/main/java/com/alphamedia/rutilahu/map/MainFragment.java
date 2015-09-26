@@ -24,6 +24,8 @@ package com.alphamedia.rutilahu.map;
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -31,11 +33,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -232,7 +236,7 @@ public class MainFragment extends Fragment implements
                             .append(p.getRt())
                             .append(" Rw. ")
                             .append(p.getRw())
-                            .append(" Desa ")
+                            .append("\nDesa ")
                             .append(p.getDesa())
                             .append("\nKec. ")
                             .append(p.getKecamatan())
@@ -247,6 +251,36 @@ public class MainFragment extends Fragment implements
                             .snippet(alamat)
                             .icon(BitmapDescriptorFactory
                                     .fromResource(R.drawable.marker)));
+
+                    mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+
+                        @Override
+                        public View getInfoWindow(Marker arg0) {
+                            return null;
+                        }
+
+                        @Override
+                        public View getInfoContents(Marker marker) {
+
+                            LinearLayout info = new LinearLayout(getContext());
+                            info.setOrientation(LinearLayout.VERTICAL);
+
+                            TextView title = new TextView(getContext());
+                            title.setTextColor(Color.BLACK);
+                            title.setGravity(Gravity.CENTER);
+                            title.setTypeface(null, Typeface.BOLD);
+                            title.setText(marker.getTitle());
+
+                            TextView snippet = new TextView(getContext());
+                            snippet.setTextColor(Color.GRAY);
+                            snippet.setText(marker.getSnippet());
+
+                            info.addView(title);
+                            info.addView(snippet);
+
+                            return info;
+                        }
+                    });
                     marker.showInfoWindow();
                     moveToLocation(posgps, false);
                 } catch (IOException e) {
@@ -444,7 +478,7 @@ public class MainFragment extends Fragment implements
             mLocationMarker.remove();
         }
         mLocationMarker = mMap.addMarker(new MarkerOptions()
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_place_black_24dp))
                 .position(latLng).anchor(0.5f, 0.5f));
     }
 
