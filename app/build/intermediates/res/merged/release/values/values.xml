@@ -289,7 +289,9 @@
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
     <!-- From: file:/D:/kerjaan/waditra/Android-Lollipop-Swipe-to-Refresh-master/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
+    <dimen name="activity_bottom_margin">30dp</dimen>
     <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_top_margin">30dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/D:/kerjaan/waditra/Android-Lollipop-Swipe-to-Refresh-master/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.0.1/res/values/values.xml -->
     <eat-comment/>

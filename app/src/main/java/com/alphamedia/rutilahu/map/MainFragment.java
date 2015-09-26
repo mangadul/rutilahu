@@ -14,7 +14,7 @@
  * limitations under the License.
  *
  * Modified by Abdul Muin (muin.abdul@gmail.com)
- * Integrated with Realm with RealmList, RealmResult
+ * Integrated with Realm with RealmList, RealmResult, Marker
  * Last script getLastKnownLocation() has found bugs (always return null caused NullPointerException) modification needed
  *
  */
@@ -37,6 +37,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alphamedia.rutilahu.Config;
@@ -112,6 +113,7 @@ public class MainFragment extends Fragment implements
     private List<Penerima> datapenerima;
 
     Realm realm;
+    private Double posisi_long, posisi_lat;
 
     public MainFragment() {
     }
@@ -188,7 +190,9 @@ public class MainFragment extends Fragment implements
             public void onTaskCompleted() {
                 try {
                     List<Penerima> data = null;
-                    data = loadPenerima();
+                    //data = loadPenerima();
+                    RealmResults res = (RealmResults<Penerima>) loadPenerima();
+                    data = res.where().equalTo("is_catat", true).findAll();
                     adapter.setData(data);
                     mListView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
@@ -204,36 +208,52 @@ public class MainFragment extends Fragment implements
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mSlidingUpPanelLayout.collapsePane();
-                //TextView ktp = (TextView) view.findViewById(R.id.ktp);
-                //String noktp = ktp.getText().toString();
-                //set_noKtp(noktp);
+
+                TextView idp = (TextView) view.findViewById(R.id.idpenerima);
+                String idpenerima = idp.getText().toString();
+                RealmResults<Penerima> result = null;
+                try {
+                    result = (RealmResults<Penerima>) loadPenerima();
+                    Penerima p = result.where()
+                            .equalTo("id_penerima", Integer.parseInt(idpenerima))
+                            .findFirst();
+
+                    setLokasi(Double.parseDouble(p.getLongitude()), Double.parseDouble(p.getLatitude()));
+
+                    String nama = p.getNamalengkap();
+                    String alamat = new StringBuilder()
+                            .append("KTP: ")
+                            .append(p.getKtp())
+                            .append("\nKK: ")
+                            .append(p.getKk())
+                            .append("\n")
+                            .append(p.getJalan_desa())
+                            .append(" Rt. ")
+                            .append(p.getRt())
+                            .append(" Rw. ")
+                            .append(p.getRw())
+                            .append(" Desa ")
+                            .append(p.getDesa())
+                            .append("\nKec. ")
+                            .append(p.getKecamatan())
+                            .append("\nKab. ")
+                            .append(p.getKabupaten())
+                            .toString();
+
+                    LatLng posgps = new LatLng(Double.parseDouble(p.getLongitude()), Double.parseDouble(p.getLatitude()));
+                    Marker marker = mMap.addMarker(new MarkerOptions()
+                            .title(nama)
+                            .position(posgps)
+                            .snippet(alamat)
+                            .icon(BitmapDescriptorFactory
+                                    .fromResource(R.drawable.marker)));
+                    marker.showInfoWindow();
+                    moveToLocation(posgps, false);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
-
-        /*
-        try {
-            if (dp != null) {
-                dp.cancel(true);
-            }
-            Log.d("Eksekusi", "Eksekusi getDataPenerima...");
-            dp = new getDataPenerima();
-            dp.execute();
-        }catch (Exception e) {
-            Log.e("Error getDataPenerima: ", e.getMessage());
-        }
-        */
-
-        /*
-        mListView.addHeaderView(mTransparentHeaderView);
-        mListView.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.map_simple_list_item, testData));
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                mSlidingUpPanelLayout.collapsePane();
-            }
-        });
-        */
-
 
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addApi(LocationServices.API)
@@ -248,6 +268,17 @@ public class MainFragment extends Fragment implements
     {
         adapter.setData(p);
         mListView.setAdapter(adapter);
+    }
+
+    private void setLokasi(Double lng, Double lat)
+    {
+        this.posisi_long = lng;
+        this.posisi_lat = lat;
+    }
+
+    private LatLng getLokasi()
+    {
+        return new LatLng(this.posisi_long, this.posisi_lat);
     }
 
     private void setUpMapIfNeeded() {
@@ -272,35 +303,6 @@ public class MainFragment extends Fragment implements
                     @Override
                     public void onMapClick(LatLng latLng) {
                         mIsNeedLocationUpdate = false;
-                        /*
-                        Penerima markerdata = realm.where(Penerima.class)
-                                .equalTo("ktp", get_noKtp())
-                                .findFirst();
-                        String nama = markerdata.getNamalengkap();
-                        String alamat = new StringBuilder().append(markerdata.getJalan_desa())
-                                .append(" Rt. ")
-                                .append(markerdata.getRt())
-                                .append(" Rw. ")
-                                .append(markerdata.getRw())
-                                .append(" Desa ")
-                                .append(markerdata.getDesa())
-                                .append(" Kec. ")
-                                .append(markerdata.getKecamatan())
-                                .append(" Kab. ")
-                                .append(markerdata.getKabupaten())
-                                .toString();
-
-                        LatLng posgps = new LatLng(Double.parseDouble(markerdata.getLongitude()), Double.parseDouble(markerdata.getLatitude()));
-                        Marker marker = mMap.addMarker(new MarkerOptions()
-                                .title(nama)
-                                .position(posgps)
-                                .snippet(alamat)
-                                .icon(BitmapDescriptorFactory
-                                        .fromResource(R.drawable.ic_location_on_black_18dp)));
-                        marker.showInfoWindow();
-
-                        moveToLocation(posgps, false);
-                        */
                         moveToLocation(latLng, false);
                     }
 
@@ -442,7 +444,7 @@ public class MainFragment extends Fragment implements
             mLocationMarker.remove();
         }
         mLocationMarker = mMap.addMarker(new MarkerOptions()
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_location_on_black_18dp))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.marker))
                 .position(latLng).anchor(0.5f, 0.5f));
     }
 

@@ -3,6 +3,8 @@ package com.alphamedia.rutilahu;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.location.Location;
 import android.location.LocationListener;
@@ -25,6 +27,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -33,8 +38,6 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmList;
-import io.realm.RealmObject;
 import io.realm.RealmResults;
 
 public class DetailActivity extends ActionBarActivity {
@@ -58,6 +61,12 @@ public class DetailActivity extends ActionBarActivity {
     private LocationManager lm;
     private LocationListener locationListener;
     Double loclong = null, loclat = null;
+    private String imgloc;
+
+    private int CAMERA_REQUEST = 3;
+    private static final int IMG_COMPRESSIONRATIO = 80;
+    private static final int IMG_INSAMPLESIZE = 3;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -253,32 +262,6 @@ public class DetailActivity extends ActionBarActivity {
                             // copy result to another list
                             // ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception
 
-                            /*
-                            realm.beginTransaction();
-                            for (int i = 0; i < results.size(); i++) {
-                                Penerima obj = results.get(i);
-                                obj.setId_penerima(id_penerima);
-                                obj.setNamalengkap(sNama);
-                                obj.setKtp(sKTP);
-                                obj.setKk(sKK);
-                                obj.setImg_foto_penerima(fp);
-                                obj.setImg_tampak_depan_rumah(fsdepan);
-                                obj.setImg_tampak_samping_1(fssamping1);
-                                obj.setImg_tampak_samping_2(fssamping2);
-                                obj.setImg_tampak_dapur(fsdapur);
-                                obj.setImg_tampak_jamban(fsjamban);
-                                obj.setImg_tampak_sumber_air(fssumberair);
-                                obj.setImg_tampak_belakang(sbelakang);
-                                obj.setLongitude(fslong);
-                                obj.setLatitude(fslat);
-                                obj.setTgl_update(fsDate);
-                                obj.setTgl_catat(fsDate);
-                                obj.setDeviceID(sdevid);
-                                obj.setIs_catat(true);
-                            }
-                            realm.commitTransaction();
-                            */
-
                             List<Penerima> list = new ArrayList<>();
                             list.addAll(results);
                             realm.beginTransaction();
@@ -385,13 +368,6 @@ public class DetailActivity extends ActionBarActivity {
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        //Bitmap bp = (Bitmap) data.getExtras().get("data");
-        //iv.setImageBitmap(bp);
-    }
-
     private void showImage(String fileloc, String txt)
     {
         final Dialog dialog = new Dialog(getApplicationContext());
@@ -440,13 +416,68 @@ public class DetailActivity extends ActionBarActivity {
         txtimgname.setText("");
         String dirfoto = get_id().toString();
         String _spath = Config.FOTO_DIR + dirfoto + "/" + fn + ".jpg";
-        Log.i("AmbilGambar", "startCameraActivity()");
         File file = new File(_spath);
+        setPhotoLoc(file.getAbsolutePath());
         Uri outputFileUri = Uri.fromFile(file);
-        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE );
+        Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
         txtimgname.setText(fn + ".jpg");
-        startActivityForResult( intent, 0 );
+        startActivityForResult(intent, CAMERA_REQUEST);
+    }
+
+    private Bitmap decodeFile(String path) {
+        try {
+            BitmapFactory.Options o = new BitmapFactory.Options();
+            o.inJustDecodeBounds = true;
+            return BitmapFactory.decodeFile(path, o);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK ) {
+            Log.d("Perkecil foto", "Proses...");
+            if(data != null) {
+                Bitmap bitmap = data.getExtras().getParcelable("data");
+                Log.i("Data photo", Integer.toString(bitmap.getWidth()));
+            } else {
+                String photoPath = getPhotoLoc();
+                File file = new File(photoPath);
+                Uri outputFileUri = Uri.fromFile(file);
+                Log.i("photoPath", photoPath);
+                Log.i("photoPathURI", outputFileUri.getPath());
+                BitmapFactory.Options bmpOptions = new BitmapFactory.Options();
+                Bitmap bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath(), bmpOptions);
+                bmpOptions.inSampleSize = 1;
+                while ((bmpPic.getWidth() >= 1024) && (bmpPic.getHeight() >= 1024)) {
+                    bmpOptions.inSampleSize++;
+                    bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath(), bmpOptions);
+                }
+                OutputStream imagefile = null;
+                try {
+                    bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath());
+                    imagefile = new FileOutputStream(outputFileUri.getPath());
+                    bmpPic.compress(Bitmap.CompressFormat.JPEG, IMG_COMPRESSIONRATIO, imagefile);
+                    Log.i("compressPhoto", "Photo berhasil dikompress...");
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void setPhotoLoc(String f){
+        this.imgloc = f;
+    }
+
+    private String getPhotoLoc()
+    {
+        return this.imgloc;
     }
 
     protected String setfname(final String ctn)

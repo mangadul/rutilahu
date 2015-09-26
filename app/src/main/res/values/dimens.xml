@@ -6,4 +6,6 @@
     <dimen name="map_height">120dp</dimen>
     <dimen name="paralax_offset">125dp</dimen>
     <dimen name="divider_height">1dp</dimen>
+    <dimen name="activity_top_margin">30dp</dimen>
+    <dimen name="activity_bottom_margin">30dp</dimen>
 </resources>
