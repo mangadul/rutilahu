@@ -189,20 +189,6 @@ public class DetailActivity extends ActionBarActivity {
         spinner.setAdapter(spinnerArrayAdapter);
         */
 
-
-        /*
-        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    public void requestPermissions(@NonNull String[] permissions, int requestCode)
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
-            return;
-        }
-        */
         try {
             lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             locationListener = new MyLocationListener();
@@ -252,7 +238,6 @@ public class DetailActivity extends ActionBarActivity {
                                 "Silahkan lengkapi isian terlebih dahulu!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        //Penerima p = new Penerima();
                         try {
 
                             RealmResults<Penerima> results = realm.where(Penerima.class).equalTo("id_penerima", id_penerima).findAll();
@@ -368,6 +353,14 @@ public class DetailActivity extends ActionBarActivity {
         }
     }
 
+<<<<<<< HEAD
+=======
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+>>>>>>> 9c4e8dbee1e2becba582a94d8066854230105d8f
     private void showImage(String fileloc, String txt)
     {
         final Dialog dialog = new Dialog(getApplicationContext());
