@@ -119,21 +119,6 @@ public class DetailActivity extends ActionBarActivity {
         ImageButton btnPenerima = (ImageButton) findViewById(R.id.btn_foto_penerimaatas);
         btnPenerima.setOnClickListener(new fotoClick(etPenerima));
 
-        /*
-        final String imguri = Config.FOTO_DIR + e_ktp + etPenerima.getText().toString();
-        Bitmap bitmap = BitmapFactory.decodeFile(imguri);
-        btnPenerima.setImageBitmap(bitmap);
-        //btnPenerima.setImageURI(Uri.parse(imguri));
-
-        ImageButton imgFotoPenerima = (ImageButton) findViewById(R.id.img_foto_penerima);
-        imgFotoPenerima.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showImage(imguri, "Foto Penerima");
-            }
-        });
-        */
-
         Button btnfotoPenerima = (Button) findViewById(R.id.foto_penerima);
         btnfotoPenerima.setOnClickListener(new fotoClick(etPenerima));
 
@@ -179,30 +164,6 @@ public class DetailActivity extends ActionBarActivity {
             editNama.setKeyListener(null);
         }
 
-        /*
-        ArrayList<String> spinnerArray = new ArrayList<String>();
-        spinnerArray.add("SUDAH DICATAT");
-        spinnerArray.add("BELUM DICATAT");
-        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
-        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        spinner.setAdapter(spinnerArrayAdapter);
-        */
-
-
-        /*
-        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    public void requestPermissions(@NonNull String[] permissions, int requestCode)
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
-            return;
-        }
-        */
         try {
             lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
             locationListener = new MyLocationListener();
@@ -504,18 +465,6 @@ public class DetailActivity extends ActionBarActivity {
     {
         return this.id_penerima;
     }
-
-    /*
-    private void set_ktp(String ktp)
-    {
-        this.e_ktp = ktp;
-    }
-
-    private String get_ktp()
-    {
-        return this.e_ktp;
-    }
-    */
 
     private void createDirFoto()
     {
