@@ -11,6 +11,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
@@ -115,9 +116,18 @@ public class DetailActivity extends ActionBarActivity {
         devid.setText(deviceId);
 
         final EditText etPenerima = (EditText) findViewById(R.id.file_foto_penerima);
-
         ImageButton btnPenerima = (ImageButton) findViewById(R.id.btn_foto_penerimaatas);
         btnPenerima.setOnClickListener(new fotoClick(etPenerima));
+
+        /*
+        ImageButton imgFotoPenerima = (ImageButton) findViewById(R.id.img_foto_penerima);
+        imgFotoPenerima.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showImage(imguri, "Foto Penerima");
+            }
+        });
+        */
 
         Button btnfotoPenerima = (Button) findViewById(R.id.foto_penerima);
         btnfotoPenerima.setOnClickListener(new fotoClick(etPenerima));
@@ -157,12 +167,23 @@ public class DetailActivity extends ActionBarActivity {
         final EditText editNama = (EditText) findViewById(R.id.edit_nama);
         final EditText editKtp = (EditText) findViewById(R.id.edit_ktp);
         final EditText editKK = (EditText) findViewById(R.id.edit_kk);
+        final EditText etKet = (EditText) findViewById(R.id.keterangan);
 
         if(!e_nama.isEmpty())
         {
             editNama.setText(e_nama);
             editNama.setKeyListener(null);
         }
+
+        /*
+        ArrayList<String> spinnerArray = new ArrayList<String>();
+        spinnerArray.add("SUDAH DICATAT");
+        spinnerArray.add("BELUM DICATAT");
+        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
+        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setAdapter(spinnerArrayAdapter);
+        */
 
         try {
             lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -202,7 +223,7 @@ public class DetailActivity extends ActionBarActivity {
                     String fslong = (etloclong.getText().toString().length() > 0) ? etloclong.getText().toString() : "";
                     String fslat = (etloclat.getText().toString().length() > 0) ? etloclat.getText().toString() : "";
                     String sdevid = (etDevid.getText().toString().length() > 0) ? etDevid.getText().toString() : "";
-
+                    String ket = (etKet.getText().toString().length() > 0) ? etKet.getText().toString() : "";
                     String sbelakang = (etBelakang.getText().toString().length() > 0) ? etBelakang.getText().toString() : "";
 
                     if(fp.equals("") || fsdepan.equals("") || fssamping1.equals("") || fssamping2.equals("") || fsdapur.equals("")
@@ -213,6 +234,7 @@ public class DetailActivity extends ActionBarActivity {
                                 "Silahkan lengkapi isian terlebih dahulu!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
+                        //Penerima p = new Penerima();
                         try {
 
                             RealmResults<Penerima> results = realm.where(Penerima.class).equalTo("id_penerima", id_penerima).findAll();
@@ -240,6 +262,7 @@ public class DetailActivity extends ActionBarActivity {
                                 obj.setTgl_update(fsDate);
                                 obj.setTgl_catat(fsDate);
                                 obj.setDeviceID(sdevid);
+                                obj.setKeterangan(ket);
                                 obj.setIs_catat(true);
                             }
                             realm.commitTransaction();
@@ -292,7 +315,12 @@ public class DetailActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -355,10 +383,21 @@ public class DetailActivity extends ActionBarActivity {
         @Override
         public void onClick( View view ){
             if(this.tv.getText().toString().length() > 0 ) this.tv.setText("");
+            //fid = this.tv.getText().toString().replace(" ", "_");
             fid = this.tv.getHint().toString().replace(" ", "_");
             Log.i("Ambil Gambar Manual", "fotoClick.onClick()" );
             startCameraActivity(this.tv, setfname(fid));
         }
+    }
+
+    private String filephoto(EditText tv)
+    {
+        if(tv.getText().toString().length() > 0 ) tv.setText("");
+        String fid = tv.getHint().toString().replace(" ", "_");
+        String dirfoto = get_id().toString();
+        String _spath = Config.FOTO_DIR + dirfoto + "/" + setfname(fid) + ".jpg";
+        File file = new File(_spath);
+        return file.getAbsolutePath();
     }
 
     protected void startCameraActivity(EditText txtimgname, String fn)
@@ -403,17 +442,19 @@ public class DetailActivity extends ActionBarActivity {
                 Log.i("photoPath", photoPath);
                 Log.i("photoPathURI", outputFileUri.getPath());
                 BitmapFactory.Options bmpOptions = new BitmapFactory.Options();
-                Bitmap bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath(), bmpOptions);
                 bmpOptions.inSampleSize = 1;
+                Bitmap bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath(), bmpOptions);
                 while ((bmpPic.getWidth() >= 1024) && (bmpPic.getHeight() >= 1024)) {
                     bmpOptions.inSampleSize++;
                     bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath(), bmpOptions);
                 }
+                Bitmap bitmap = Bitmap.createBitmap(bmpPic, 0, 0, bmpPic.getWidth(), bmpPic.getHeight());
                 OutputStream imagefile = null;
                 try {
                     imagefile = new FileOutputStream(outputFileUri.getPath());
-                    bmpPic.compress(Bitmap.CompressFormat.JPEG, IMG_COMPRESSIONRATIO, imagefile);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, IMG_COMPRESSIONRATIO, imagefile);
                     Log.i("compressPhoto", "Photo berhasil dikompress...");
+                    SystemClock.sleep(2000);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -455,6 +496,18 @@ public class DetailActivity extends ActionBarActivity {
         return this.id_penerima;
     }
 
+    /*
+    private void set_ktp(String ktp)
+    {
+        this.e_ktp = ktp;
+    }
+
+    private String get_ktp()
+    {
+        return this.e_ktp;
+    }
+    */
+
     private void createDirFoto()
     {
         Integer idp = get_id();
@@ -494,7 +547,7 @@ public class DetailActivity extends ActionBarActivity {
 
 }
 
-/* 
+/*
 * copy result to another list
-* ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception 
- */
+* ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception
+*/

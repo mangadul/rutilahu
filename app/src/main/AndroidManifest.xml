@@ -121,6 +121,15 @@
         </activity>
 
         <activity
+            android:name=".AmbilGambar"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".DetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.alphamedia.rutilahu.DetailActivity" />
+        </activity>
+
+        <activity
             android:name=".Backup"
             android:label="@string/title_activity_backup"
             android:theme="@android:style/Theme.Holo.Light.Dialog"

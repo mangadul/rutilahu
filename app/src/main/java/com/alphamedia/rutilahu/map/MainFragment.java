@@ -177,6 +177,7 @@ public class MainFragment extends Fragment implements
         mLocation = getArguments().getParcelable(ARG_LOCATION);
         if (mLocation == null) {
             mLocation = getLastKnownLocation(false);
+            //mLocation = new  LatLng(-6.2086768,106.8086909);
         }
 
         mMapFragment = SupportMapFragment.newInstance();
@@ -384,9 +385,22 @@ public class MainFragment extends Fragment implements
         return getLastKnownLocation(true);
     }
 
+    /*
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        lr = LocationRequest.create();
+        lr.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        lc = new LocationClient(this.getActivity().getApplicationContext(),
+                this, this);
+        lc.connect();
+    }
+    */
+
     private LatLng getLastKnownLocation(boolean isMoveMarker) {
         try {
-
+            // TheApp.getAppContext()
+            //getAppContext().getSystemService(Context.LOCATION_SERVICE);
             LocationManager lm = (LocationManager) TheApp.getAppContext().getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
             // getting GPS status
             isGPSEnabled = lm
@@ -640,6 +654,10 @@ public class MainFragment extends Fragment implements
             }
             realm.commitTransaction();
 
+            //result = realm.where(Penerima.class).findAll();
+            //datapenerima = realm.allObjects(Penerima.class);
+            //Integer sum = result.size();
+            //realm.close();
             return 1;
         }
 
