@@ -411,7 +411,6 @@ public class DetailActivity extends ActionBarActivity {
                 }
                 OutputStream imagefile = null;
                 try {
-                    bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath());
                     imagefile = new FileOutputStream(outputFileUri.getPath());
                     bmpPic.compress(Bitmap.CompressFormat.JPEG, IMG_COMPRESSIONRATIO, imagefile);
                     Log.i("compressPhoto", "Photo berhasil dikompress...");
