@@ -54,7 +54,6 @@ public class LoginActivity extends Activity {
         {
             i = new Intent(LoginActivity.this, DataPenerimaRealmIO.class);
             i.putExtra("islogin", true);
-            i.putExtra("devid", true);
             Toast.makeText(getApplicationContext(),"Login Berhasil", Toast.LENGTH_SHORT).show();
             startActivity(i);
             this.finish();
