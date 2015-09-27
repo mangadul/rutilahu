@@ -84,19 +84,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
         Realm.setDefaultConfiguration(realmConfiguration);
 
-        /*
-        try {
-            if (realm != null) {
-                realm.close();
-            }
-            RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(this).build();
-            Realm.setDefaultConfiguration(realmConfiguration);
-        } catch (RealmException e)
-        {
-            Log.e("Error: ", e.getMessage());
-        }
-        */
-
         getLoaderManager().initLoader(LOAD_NETWORK_C, null, this).forceLoad();
     }
 
@@ -116,8 +103,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             realm.addChangeListener(realmListener);
         } catch (RealmException e) {
             Log.e("Error: ", e.getMessage());
-            //realm.close();
-            //Realm.deleteRealmFile(this);
         }
     }
 
@@ -129,8 +114,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
     @Override
     protected void onStop() {
         super.onStop();
-        //realm.close();
-        //Realm.deleteRealm(realmConfiguration);
     }
 
     @Override
@@ -227,7 +210,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
             mAdapter.notifyDataSetChanged();
             mListView.invalidate();
         }
-        //realm.close();
     }
 
     private void openSearchBar(String queryText) {
@@ -302,7 +284,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
         super.onDestroy();
         realm.removeChangeListener(realmListener);
         realm.close();
-        //Realm.deleteRealm(realmConfiguration);
     }
 
 
@@ -580,7 +561,6 @@ public class DataPenerimaRealmIO extends ActionBarActivity implements LoaderMana
                 realm.close();
             }
             realm.commitTransaction();
-            //realm.close();
             return "";
         }
 
