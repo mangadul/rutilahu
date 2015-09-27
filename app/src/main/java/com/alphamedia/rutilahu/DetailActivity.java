@@ -5,20 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,10 +24,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -47,10 +43,6 @@ public class DetailActivity extends ActionBarActivity {
 
     private Realm realm;
 
-    Camera camera;
-
-    SurfaceHolder surfaceHolder;
-
     private String e_ktp, e_status,
             e_nama, e_alamat,
             e_kecamatan, e_kabupaten;
@@ -64,10 +56,9 @@ public class DetailActivity extends ActionBarActivity {
     Double loclong = null, loclat = null;
     private String imgloc;
 
-    private int CAMERA_REQUEST = 3;
-    private static final int IMG_COMPRESSIONRATIO = 80;
-    private static final int IMG_INSAMPLESIZE = 3;
-
+    private int CAMERA_REQUEST = 1333;
+    private static final int PHOTO_REQ_WIDTH = 720;
+    private static final int PHOTO_REQ_HEIGHT = 960;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,22 +103,23 @@ public class DetailActivity extends ActionBarActivity {
 
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String deviceId = telephonyManager.getDeviceId();
-        EditText devid = (EditText) findViewById(R.id.devid);
+        final EditText devid = (EditText) findViewById(R.id.devid);
         devid.setText(deviceId);
 
         final EditText etPenerima = (EditText) findViewById(R.id.file_foto_penerima);
-        ImageButton btnPenerima = (ImageButton) findViewById(R.id.btn_foto_penerimaatas);
+        final ImageButton btnPenerima = (ImageButton) findViewById(R.id.btn_foto_penerimaatas);
         btnPenerima.setOnClickListener(new fotoClick(etPenerima));
 
-        /*
-        ImageButton imgFotoPenerima = (ImageButton) findViewById(R.id.img_foto_penerima);
-        imgFotoPenerima.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showImage(imguri, "Foto Penerima");
-            }
-        });
-        */
+        if(etPenerima.getText().toString().length() > 0) {
+            final String imguri = etPenerima.getText().toString();
+            final ImageButton imgFotoPenerima = (ImageButton) findViewById(R.id.img_foto_penerima);
+            imgFotoPenerima.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    showImage(imguri, "Foto Penerima");
+                }
+            });
+        }
 
         Button btnfotoPenerima = (Button) findViewById(R.id.foto_penerima);
         btnfotoPenerima.setOnClickListener(new fotoClick(etPenerima));
@@ -234,7 +226,7 @@ public class DetailActivity extends ActionBarActivity {
                                 "Silahkan lengkapi isian terlebih dahulu!",
                                 Toast.LENGTH_SHORT).show();
                     } else {
-                        //Penerima p = new Penerima();
+
                         try {
 
                             RealmResults<Penerima> results = realm.where(Penerima.class).equalTo("id_penerima", id_penerima).findAll();
@@ -309,18 +301,12 @@ public class DetailActivity extends ActionBarActivity {
     protected void onDestroy() {
         super.onDestroy();
         realm.close();
-        //Realm.deleteRealm(realmConfiguration);
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -328,39 +314,20 @@ public class DetailActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void refreshCamera() {
-        if (surfaceHolder.getSurface() == null) {
-            return;
-        }
-
-        try {
-            camera.stopPreview();
-        }
-
-        catch (Exception e) {
-        }
-
-        try {
-            camera.setPreviewDisplay(surfaceHolder);
-            camera.startPreview();
-        }
-        catch (Exception e) {
-        }
-    }
-
     private void showImage(String fileloc, String txt)
     {
-        final Dialog dialog = new Dialog(getApplicationContext());
+        final Dialog dialog = new Dialog(DetailActivity.this);
         dialog.setContentView(R.layout.imageview);
-        dialog.setTitle("Display Image " + txt);
-
+        dialog.setTitle("Lihat Gambar " + txt);
         TextView text = (TextView) dialog.findViewById(R.id.text);
         text.setText(txt);
-
         ImageView image = (ImageView) dialog.findViewById(R.id.image);
-        String imguri = Config.FOTO_DIR + fileloc;
-        image.setImageURI(Uri.parse(imguri));
-
+        String imguri = Config.FOTO_DIR + Integer.toString(id_penerima) + fileloc;
+        Picasso.with(getApplicationContext())
+                .load(new File(imguri))
+                .error(R.drawable.ic_photo_black_18dp)
+                .placeholder(R.drawable.ic_photo_black_18dp)
+                .into(image);
         Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -383,7 +350,6 @@ public class DetailActivity extends ActionBarActivity {
         @Override
         public void onClick( View view ){
             if(this.tv.getText().toString().length() > 0 ) this.tv.setText("");
-            //fid = this.tv.getText().toString().replace(" ", "_");
             fid = this.tv.getHint().toString().replace(" ", "_");
             Log.i("Ambil Gambar Manual", "fotoClick.onClick()" );
             startCameraActivity(this.tv, setfname(fid));
@@ -406,8 +372,8 @@ public class DetailActivity extends ActionBarActivity {
         txtimgname.setText("");
         String dirfoto = get_id().toString();
         String _spath = Config.FOTO_DIR + dirfoto + "/" + fn + ".jpg";
+        setPhotoLoc(_spath);
         File file = new File(_spath);
-        setPhotoLoc(file.getAbsolutePath());
         Uri outputFileUri = Uri.fromFile(file);
         Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
@@ -415,54 +381,52 @@ public class DetailActivity extends ActionBarActivity {
         startActivityForResult(intent, CAMERA_REQUEST);
     }
 
-    private Bitmap decodeFile(String path) {
-        try {
-            BitmapFactory.Options o = new BitmapFactory.Options();
-            o.inJustDecodeBounds = true;
-            return BitmapFactory.decodeFile(path, o);
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-        return null;
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK ) {
-            Log.d("Perkecil foto", "Proses...");
-            if(data != null) {
-                Bitmap bitmap = data.getExtras().getParcelable("data");
-                Log.i("Data photo", Integer.toString(bitmap.getWidth()));
-            } else {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == CAMERA_REQUEST)
+        {
+            try {
                 String photoPath = getPhotoLoc();
+                Log.d("PhotoPath", photoPath);
                 File file = new File(photoPath);
                 Uri outputFileUri = Uri.fromFile(file);
-                Log.i("photoPath", photoPath);
-                Log.i("photoPathURI", outputFileUri.getPath());
-                BitmapFactory.Options bmpOptions = new BitmapFactory.Options();
-                bmpOptions.inSampleSize = 1;
-                Bitmap bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath(), bmpOptions);
-                while ((bmpPic.getWidth() >= 1024) && (bmpPic.getHeight() >= 1024)) {
-                    bmpOptions.inSampleSize++;
-                    bmpPic = BitmapFactory.decodeFile(outputFileUri.getPath(), bmpOptions);
-                }
-                Bitmap bitmap = Bitmap.createBitmap(bmpPic, 0, 0, bmpPic.getWidth(), bmpPic.getHeight());
-                OutputStream imagefile = null;
-                try {
-                    imagefile = new FileOutputStream(outputFileUri.getPath());
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, IMG_COMPRESSIONRATIO, imagefile);
-                    Log.i("compressPhoto", "Photo berhasil dikompress...");
-                    SystemClock.sleep(2000);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+                Log.d("PhotoPath", outputFileUri.getPath());
+                Bitmap bitmap = decodeSampledBitmapFromFile(outputFileUri.getPath(), PHOTO_REQ_WIDTH, PHOTO_REQ_HEIGHT);
+            } catch (NullPointerException npe)
+            {
+                npe.printStackTrace();
             }
         }
     }
 
-    private void setPhotoLoc(String f){
+    public static Bitmap decodeSampledBitmapFromFile(String path, int reqWidth, int reqHeight)
+    {
+        //First decode with inJustDecodeBounds=true to check dimensions
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(path, options);
+        // Calculate inSampleSize, Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        int inSampleSize = 1;
+        if (height > reqHeight)
+        {
+            inSampleSize = Math.round((float)height / (float)reqHeight);
+        }
+        int expectedWidth = width / inSampleSize;
+        if (expectedWidth > reqWidth)
+        {
+            //if(Math.round((float)width / (float)reqWidth) > inSampleSize)
+            inSampleSize = Math.round((float)width / (float)reqWidth);
+        }
+        options.inSampleSize = inSampleSize;
+        // Decode bitmap with inSampleSize set
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(path, options);
+    }
+
+    private void setPhotoLoc(String f) {
         this.imgloc = f;
     }
 
@@ -550,4 +514,5 @@ public class DetailActivity extends ActionBarActivity {
 /*
 * copy result to another list
 * ref: http://stackoverflow.com/questions/32559473/android-realm-iterators-exception
+* http://blog-emildesign.rhcloud.com/?p=590
 */

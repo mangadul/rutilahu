@@ -136,6 +136,14 @@
                 android:value="com.alphamedia.rutilahu.DataPenerimaRealmIO" />
         </activity>
         <activity
+            android:name="com.alphamedia.rutilahu.AmbilGambar"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName="com.alphamedia.rutilahu.DetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.alphamedia.rutilahu.DetailActivity" />
+        </activity>
+        <activity
             android:name="com.alphamedia.rutilahu.Backup"
             android:label="@string/title_activity_backup"
             android:parentActivityName="com.alphamedia.rutilahu.DataPenerimaRealmIO"
